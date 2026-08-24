@@ -1,11 +1,37 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Footer from '../components/layout/Footer.astro';
+import About from "../components/sections/About.astro";
+
+import { Navbar } from '../components/layout/Navbar.tsx';
+import { Audience } from '../components/sections/Audience.tsx';
+import { Benefits } from '../components/sections/Benefits.tsx';
+import { CTABand } from '../components/sections/CTABand.tsx';
+import { Differentiators } from '../components/sections/Differentiators.tsx';
+import { Hero } from '../components/sections/Hero.tsx';
+import { Process } from '../components/sections/Process.tsx';
+import { Projects } from '../components/sections/Projects.tsx';
+import { Services } from '../components/sections/Services.tsx';
+import { Testimonials } from '../components/sections/Testimonials.tsx';
 ---
 
 <Layout>
-	<Welcome />
+  <Navbar client:load />
+
+  <main>
+    <Hero client:load />
+
+    <Benefits client:visible />
+    <About />
+    <Services client:visible />
+    <Process client:visible />
+    <Differentiators client:visible />
+    <Projects client:visible />
+    <Audience client:visible />
+    <Testimonials client:visible />
+    <CTABand client:visible />
+  </main>
+
+  <Footer />
 </Layout>

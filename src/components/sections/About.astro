@@ -1,0 +1,47 @@
+---
+import { ArrowUpRight } from "lucide-astro";
+import { WHATSAPP_URL } from "../../data/content";
+import { SectionHeader } from "../ui/SectionHeader.tsx";
+---
+
+<section class="py-16 md:py-28 bg-white border-t border-border/50" id="sobre">
+  <div class="container px-6 md:px-8 mx-auto">
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start">
+
+      <SectionHeader
+        client:visible
+        eyebrow="Quem somos"
+        align="left"
+        className="mb-0 md:mb-0"
+      >
+        Eliminamos gargalos para sua empresa <span class="text-gradient">escalar com eficiência.</span>
+      </SectionHeader>
+
+      <div class="flex flex-col gap-6 text-base md:text-[1.05rem] text-text-muted leading-relaxed lg:pt-10">
+        <p>
+          Transformamos tarefas manuais e retrabalho constante em processos ágeis e integrados. Desenvolvemos automações e sistemas sob medida que devolvem o controle da operação para as suas mãos.
+        </p>
+
+        <p>
+          Como uma software house boutique sediada em Patos de Minas, atendemos empresas de todo o Brasil com uma premissa clara: a tecnologia deve trabalhar para o seu negócio, e não o contrário.
+        </p>
+
+        <p>
+          Mergulhamos na sua rotina para identificar gargalos invisíveis e entregar a solução exata que a sua realidade exige.
+        </p>
+
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 text-[0.95rem] font-bold text-text-dark hover:text-primary transition-colors group mt-4 w-fit outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
+        >
+          Conversar sobre a sua operação
+          <ArrowUpRight class="w-4 h-4 text-text-faint group-hover:text-primary transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" stroke-width="2.5" />
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
