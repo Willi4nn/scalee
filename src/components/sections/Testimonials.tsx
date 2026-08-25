@@ -27,41 +27,41 @@ export function Testimonials() {
       className="py-16 md:py-28 bg-bg-alt text-center overflow-hidden"
     >
       <div className="container px-4 md:px-8 mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-14 gap-6">
-          <div className="text-left max-w-xl">
-            <SectionHeader eyebrow="Depoimentos" eyebrowColor="secondary">
-              Quem trabalha com a Scalee sente a diferença.
-            </SectionHeader>
-          </div>
+        <SectionHeader
+          eyebrow="Depoimentos"
+          eyebrowColor="primary"
+          align="center"
+        >
+          Quem trabalha com a Scalee sente a diferença.
+        </SectionHeader>
 
-          <div className="hidden sm:flex items-center gap-3 self-end md:self-auto">
-            <button
-              onClick={() => scroll('left')}
-              className="flex items-center justify-center w-11 h-11 rounded-full bg-white border border-border text-text-dark hover:bg-slate-50 hover:border-border-strong transition-all active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-primary shadow-sm"
-              aria-label="Rolar para o depoimento anterior"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={() => scroll('right')}
-              className="flex items-center justify-center w-11 h-11 rounded-full bg-white border border-border text-text-dark hover:bg-slate-50 hover:border-border-strong transition-all active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-primary shadow-sm"
-              aria-label="Rolar para o próximo depoimento"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
+        <div className="hidden sm:flex items-center justify-end gap-3 mb-6">
+          <button
+            onClick={() => scroll('left')}
+            className="flex items-center justify-center w-11 h-11 rounded-full bg-white border border-border text-text-dark hover:bg-slate-50 hover:border-border-strong transition-all active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-primary shadow-sm"
+            aria-label="Rolar para o depoimento anterior"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={() => scroll('right')}
+            className="flex items-center justify-center w-11 h-11 rounded-full bg-white border border-border text-text-dark hover:bg-slate-50 hover:border-border-strong transition-all active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-primary shadow-sm"
+            aria-label="Rolar para o próximo depoimento"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
         </div>
 
         <div
           ref={scrollContainerRef}
-          className="flex gap-6 text-left overflow-x-auto snap-x snap-mandatory pb-8 pt-2 px-1 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none focus-visible:ring-2 focus-visible:ring-primary rounded-2xl"
+          className="flex gap-4 sm:gap-6 text-left overflow-x-auto snap-x snap-mandatory pb-8 pt-2 px-4 sm:px-1 -mx-4 sm:mx-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none focus-visible:ring-2 focus-visible:ring-primary rounded-2xl"
           tabIndex={0}
           aria-label="Lista de depoimentos"
         >
           {TESTIMONIALS.map((test, i) => (
             <motion.div
               key={test.name}
-              className="w-[85vw] sm:w-105 lg:w-112.5 shrink-0 snap-center bg-white border border-border/80 rounded-2xl p-6 md:p-8 flex flex-col shadow-sm hover:shadow-md transition-shadow"
+              className="w-[85vw] sm:w-105 lg:w-112.5 shrink-0 snap-start sm:snap-center bg-white border border-border/80 rounded-2xl p-6 md:p-8 flex flex-col shadow-sm hover:shadow-md transition-shadow"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
@@ -74,9 +74,6 @@ export function Testimonials() {
 
               <div className="flex items-center justify-between border-t border-border/60 pt-5 mt-auto">
                 <div className="flex items-center gap-3.5">
-                  <div className="w-11 h-11 rounded-full bg-primary/10 text-primary flex items-center justify-center font-display font-bold text-sm shrink-0">
-                    {test.avatar}
-                  </div>
                   <div>
                     <p className="text-[0.9rem] font-bold text-text-dark leading-tight">
                       {test.name}

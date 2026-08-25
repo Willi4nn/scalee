@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 
 import Footer from '../components/layout/Footer.astro';
 import About from "../components/sections/About.astro";
+import FloatingWhatsApp from '../components/ui/FloatingWhatsApp.astro';
 
 import { Navbar } from '../components/layout/Navbar.tsx';
 import { Audience } from '../components/sections/Audience.tsx';
@@ -33,5 +34,6 @@ import { Testimonials } from '../components/sections/Testimonials.tsx';
     <CTABand client:visible />
   </main>
 
+  <FloatingWhatsApp />
   <Footer />
 </Layout>

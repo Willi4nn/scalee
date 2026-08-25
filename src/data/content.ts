@@ -63,6 +63,21 @@ export interface FooterLinks {
   recursos: FooterLinkItem[];
 }
 
+export interface ServiceModalDetails {
+  pain: string;
+  solution: string;
+  features: string[];
+  whatsappMessage: string;
+}
+
+export interface Service {
+  num: string;
+  title: string;
+  desc: string;
+  link: string;
+  modalDetails: ServiceModalDetails;
+}
+
 export const NAV_LINKS: NavLink[] = [
   { label: 'Sobre', href: '#sobre' },
   { label: 'Soluções', href: '#solucoes' },
@@ -127,26 +142,78 @@ export const SERVICES: Service[] = [
   {
     num: '01',
     title: 'Atendimento Inteligente no WhatsApp',
-    desc: 'Triagem automática, respostas rápidas e agendamento 24h conectados ao seu funil de vendas — sem perder clientes por demora.',
+    desc: 'Triagem automática, respostas rápidas e agendamento 24h conectados ao seu funil de vendas sem parecer um robô engessado e sem perder clientes por demora.',
     link: '#',
+    modalDetails: {
+      pain: 'Sua equipe repete as mesmas respostas o dia inteiro e, fora do horário comercial ou nos picos de movimento, o cliente desiste e fecha com o concorrente que responde primeiro.',
+      solution:
+        'Um fluxo de atendimento automatizado e humanizado que tria contatos, tira dúvidas com respostas assistidas por IA (revisadas em 1 clique por um atendente) e organiza agendamentos e orçamentos direto em um painel, nada de plataforma de bot genérica.',
+      features: [
+        'Atendimento e triagem 24 horas por dia, todos os dias',
+        'Respostas assistidas por IA, sem parecer um robô engessado',
+        'Transbordo inteligente para o atendente humano quando preciso',
+        'Captura e organização automática de leads em um painel próprio',
+      ],
+      whatsappMessage:
+        'Olá! Vi no site sobre a Automação de WhatsApp e gostaria de saber como aplicar na minha empresa para não perder mais vendas.',
+    },
   },
   {
     num: '02',
-    title: 'Landing Pages & Google Meu Negócio',
-    desc: 'Páginas ultrarrápidas que colocam seu negócio no topo das buscas locais e transformam visitante em cliente.',
+    title: 'Landing Pages de Alta Velocidade & Google Meu Negócio',
+    desc: 'Páginas ultrarrápidas em Astro que colocam seu negócio no topo das buscas locais e transformam visitante em cliente pelo WhatsApp.',
     link: '#',
+    modalDetails: {
+      pain: 'Seu cliente pesquisa "[seu serviço] perto de mim" no Google e fecha com o concorrente, porque sua empresa ainda não tem uma presença digital rápida e profissional.',
+      solution:
+        'Construímos com Astro para um carregamento quase instantâneo sem o peso desnecessário de frameworks genéricos, otimizado para SEO local em Patos de Minas e região, e conectado ao seu Google Meu Negócio para dominar as buscas da cidade.',
+      features: [
+        'Carregamento em menos de 1 segundo, mesmo em conexão 4G',
+        'Otimização direta e completa do Google Meu Negócio',
+        'Design pensado 100% para converter visitante em conversa no WhatsApp',
+        'Sem mensalidades de plataformas engessadas tipo builders genéricos',
+      ],
+      whatsappMessage:
+        'Olá! Gostaria de um diagnóstico gratuito sobre a presença digital da minha empresa e saber mais sobre a criação de Landing Pages.',
+    },
   },
   {
     num: '03',
     title: 'Automação de Processos e Integrações',
-    desc: 'Conectamos seus sistemas, planilhas e ferramentas para eliminar retrabalho manual e acelerar pedidos e orçamentos.',
+    desc: 'Conectamos WhatsApp, planilhas, CRM e ERP para que conversem sozinhos, eliminando retrabalho manual e acelerando pedidos e orçamentos.',
     link: '#',
+    modalDetails: {
+      pain: 'Informação duplicada, ordens de serviço perdidas e funcionários gastando horas redigitando os mesmos dados de um sistema para uma planilha.',
+      solution:
+        'Conectamos as ferramentas que você já usa WhatsApp, CRM, ERP, Google Sheets, PDFs de notas e pedidos via APIs e webhooks, incluindo leitura automática de documentos por IA, para que tudo flua sozinho.',
+      features: [
+        'Fim das tarefas repetitivas de redigitação manual',
+        'Notificações automáticas para a equipe certa, na hora certa',
+        'Leitura e organização automática de PDFs, notas e pedidos por IA',
+        'Retorno sobre o investimento (ROI) perceptível em dias',
+      ],
+      whatsappMessage:
+        'Olá! Minha operação tem muitos processos manuais. Como funciona o serviço de Automação de Processos e Integrações?',
+    },
   },
   {
     num: '04',
     title: 'Sistemas e Portais sob Medida',
-    desc: 'Controle de estoque, ordens de serviço e relatórios em um só lugar, feito para a realidade da sua empresa.',
+    desc: 'Controle de estoque, ordens de serviço e relatórios em um só lugar feito para a rotina real da sua empresa, não o contrário.',
     link: '#',
+    modalDetails: {
+      pain: 'Você já tentou softwares de prateleira, mas eles são complexos demais, cheios de função inútil e não se adaptam à forma como sua equipe realmente trabalha.',
+      solution:
+        'Desenvolvemos portais, mini-ERPs e dashboards exatos para o seu gargalo específico. A tecnologia se adapta ao seu processo, e não o contrário e tudo passa por testes de ponta a ponta antes de ir para o ar.',
+      features: [
+        'Áreas logadas seguras para clientes ou equipe',
+        'Controle exato de ordens de serviço, estoque e cadastros',
+        'Testes automatizados (QA) garantindo que nada quebre em produção',
+        'Dashboards visuais em tempo real para decisões rápidas',
+      ],
+      whatsappMessage:
+        'Olá! Gostaria de conversar sobre a criação de um sistema/portal sob medida para resolver um gargalo na minha empresa.',
+    },
   },
 ];
 
@@ -223,15 +290,6 @@ export const PROJECTS: Project[] = [
     image: '/images/renova.png',
   },
   {
-    tag: 'Automação WPP',
-    title: 'Assistente Inteligente',
-    year: 2026,
-    description:
-      'Agente de inteligência artificial integrado ao WhatsApp para qualificação de leads e agendamento de serviços 24/7. Elimina o tempo de espera do cliente, responde dúvidas frequentes de forma humanizada e transforma o canal de atendimento da empresa em uma máquina autônoma de captação.',
-    skills: ['Node.js', 'TypeScript', 'WhatsApp API', 'OpenAI'],
-    projectUrl: '#',
-  },
-  {
     tag: 'Site de Alta Conversão',
     title: 'Foto Teka',
     year: 2026,
@@ -240,6 +298,16 @@ export const PROJECTS: Project[] = [
     skills: ['Next.js', 'React', 'TypeScript', 'Framer Motion'],
     projectUrl: 'https://www.fototeka.com.br',
     image: '/images/foto-teka.png',
+  },
+  {
+    tag: 'Automação WPP',
+    title: 'Assistente Inteligente',
+    year: 2026,
+    description:
+      'Agente de inteligência artificial integrado ao WhatsApp para qualificação de leads e agendamento de serviços 24/7. Elimina o tempo de espera do cliente, responde dúvidas frequentes de forma humanizada e transforma o canal de atendimento da empresa em uma máquina autônoma de captação.',
+    skills: ['Node.js', 'TypeScript', 'WhatsApp API', 'OpenAI', 'n8n'],
+    projectUrl: '#',
+    image: '/images/whatsapp.png',
   },
 ];
 
@@ -274,7 +342,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
       'Antes era muito papel e muita coisa anotada. Às vezes precisava procurar pedido e demorava até achar. Com o Renova ficou bem mais fácil acompanhar os serviços e saber o que está pendente. No dia a dia fez bastante diferença aqui na oficina.',
-    name: 'Piaba',
+    name: 'José Eustáquio',
     role: 'Estofados Piaba',
     avatar: 'PI',
   },

@@ -34,7 +34,7 @@ export function Navbar() {
             aria-label="Voltar para o topo"
           >
             <img
-              src="/assets/scalee-logo.svg"
+              src="/scalee-logo.svg"
               alt="Scalee Logo"
               className="h-7 w-auto group-hover:-translate-y-0.5 transition-transform duration-300"
             />
@@ -91,7 +91,7 @@ export function Navbar() {
         onClick={() => setMobileMenuOpen(false)}
       >
         <div
-          className="flex flex-col px-6 pt-24 pb-8 min-h-screen"
+          className="flex flex-col px-6 pt-24 pb-12 min-h-dvh"
           onClick={(e) => e.stopPropagation()}
         >
           <nav className="flex flex-col gap-1 flex-1 mt-4">
@@ -107,10 +107,10 @@ export function Navbar() {
             ))}
           </nav>
 
-          <div className="mt-8 mb-safe">
+          <div className="mt-auto pt-8">
             <Button
               href={WHATSAPP_URL}
-              className="w-full justify-center"
+              className="w-full justify-center shadow-primary"
               size="md"
               icon
             >

@@ -9,6 +9,7 @@ import {
 import { motion } from 'motion/react';
 import type { ElementType } from 'react';
 import { DIFFERENTIATORS } from '../../data/content';
+import { SectionHeader } from '../ui/SectionHeader';
 
 const ICONS = { ScanSearch, Ruler, Workflow, BrainCircuit, Target, Handshake };
 
@@ -23,34 +24,24 @@ export function Differentiators() {
       id="tecnologia"
       className="relative py-16 md:py-28 bg-slate-950 overflow-hidden scroll-mt-24"
     >
-      <div
-        className="pointer-events-none absolute -top-40 left-1/4 w-140 h-140 rounded-full bg-primary/10 blur-[140px]"
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute -bottom-40 right-0 w-105 h-105 rounded-full bg-primary/5 blur-[120px]"
-        aria-hidden="true"
-      />
+      <div aria-hidden="true" />
 
-      <div className="container relative z-10">
+      <div className="container z-10">
         <motion.header
-          className="max-w-2xl mb-12 md:mb-16"
+          className="max-w-2xl mx-auto mb-12 md:mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p className="font-mono text-[0.75rem] font-bold tracking-[0.08em] uppercase text-primary mb-4">
-            Nosso diferencial
-          </p>
-          <h2 className="text-[clamp(1.9rem,3.4vw,2.6rem)] leading-[1.15] font-display font-bold mb-5 text-white tracking-tight">
+          <SectionHeader
+            eyebrow="Nosso diferencial"
+            eyebrowColor="primary"
+            description="Em vez de adaptar sua operação a ferramentas genéricas, entendemos seus processos, identificamos os gargalos e construímos soluções sob medida para gerar eficiência de verdade."
+            theme="dark"
+          >
             Tecnologia sob medida, pensada para o seu negócio
-          </h2>
-          <p className="text-[1.05rem] leading-relaxed text-slate-400">
-            Em vez de adaptar sua operação a ferramentas genéricas, entendemos
-            seus processos, identificamos os gargalos e construímos soluções sob
-            medida para gerar eficiência de verdade.
-          </p>
+          </SectionHeader>
         </motion.header>
 
         <motion.div

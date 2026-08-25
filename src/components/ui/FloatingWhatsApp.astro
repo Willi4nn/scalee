@@ -1,0 +1,18 @@
+---
+import { MessageCircle } from 'lucide-astro';
+import { WHATSAPP_URL } from '../../data/content';
+---
+
+<a
+  href={WHATSAPP_URL}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="fixed bottom-6 right-6 z-30 flex items-center justify-center w-14 h-14 rounded-full bg-emerald-500 text-white shadow-lg shadow-emerald-500/30 hover:bg-emerald-600 transition-transform hover:-translate-y-1 group outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
+  aria-label="Falar com especialista no WhatsApp"
+>
+  <span
+    class="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-75 group-hover:opacity-0 transition-opacity"
+  ></span>
+
+  <MessageCircle stroke-width="2.5" class="w-7 h-7 relative z-10" />
+</a>

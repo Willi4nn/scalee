@@ -9,6 +9,7 @@ interface SectionHeaderProps {
   description?: ReactNode;
   align?: 'left' | 'center';
   className?: string;
+  theme?: 'light' | 'dark';
 }
 
 export function SectionHeader({
@@ -18,6 +19,7 @@ export function SectionHeader({
   description,
   align = 'center',
   className,
+  theme = 'light',
 }: SectionHeaderProps) {
   const isCenter = align === 'center';
 
@@ -42,11 +44,21 @@ export function SectionHeader({
           {eyebrow}
         </span>
       )}
-      <h2 className="text-[clamp(1.75rem,3.5vw,2.75rem)] font-display font-bold text-text-dark leading-[1.1] tracking-tight mb-5">
+      <h2
+        className={cn(
+          'text-[clamp(1.75rem,3.5vw,2.75rem)] font-display font-bold leading-[1.1] tracking-tight mb-5',
+          theme === 'dark' ? 'text-white' : 'text-text-dark'
+        )}
+      >
         {children}
       </h2>
       {description && (
-        <p className="text-[1.05rem] text-text-muted leading-relaxed">
+        <p
+          className={cn(
+            'text-[1.05rem] leading-relaxed',
+            theme === 'dark' ? 'text-slate-400' : 'text-text-muted'
+          )}
+        >
           {description}
         </p>
       )}

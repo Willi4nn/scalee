@@ -2,6 +2,7 @@ import * as Icons from 'lucide-react';
 import { motion } from 'motion/react';
 import type { ElementType } from 'react';
 import { AUDIENCE_TAGS, type AudienceTag } from '../../data/content';
+import { SectionHeader } from '../ui/SectionHeader';
 
 const ROW_1 = AUDIENCE_TAGS.slice(0, Math.ceil(AUDIENCE_TAGS.length / 2));
 const ROW_2 = AUDIENCE_TAGS.slice(Math.ceil(AUDIENCE_TAGS.length / 2));
@@ -62,13 +63,10 @@ export function Audience() {
           viewport={{ once: true, margin: '-50px' }}
           className="flex flex-col items-center text-center max-w-175 mx-auto"
         >
-          <span className="font-mono text-[0.7rem] md:text-xs font-bold tracking-[0.12em] uppercase text-secondary mb-4">
-            PARA QUEM É
-          </span>
-          <h2 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-display font-bold leading-[1.1] tracking-[-0.02em] text-text-dark">
+          <SectionHeader eyebrow="Para quem é" eyebrowColor="primary">
             Se existe um processo repetitivo, existe uma oportunidade de
             automatizar.
-          </h2>
+          </SectionHeader>
         </motion.div>
       </div>
 
