@@ -26,7 +26,7 @@ export function SectionHeader({
   return (
     <motion.div
       className={cn(
-        'max-w-175 mb-12 md:mb-16',
+        'mb-12 max-w-175 md:mb-16',
         isCenter ? 'mx-auto text-center' : 'text-left',
         className
       )}
@@ -37,7 +37,7 @@ export function SectionHeader({
       {eyebrow && (
         <span
           className={cn(
-            'font-mono text-[0.75rem] font-bold tracking-[0.08em] uppercase block mb-4',
+            'mb-4 block font-mono text-[0.75rem] font-bold tracking-[0.08em] uppercase',
             eyebrowColor === 'primary' ? 'text-primary' : 'text-secondary'
           )}
         >
@@ -46,7 +46,7 @@ export function SectionHeader({
       )}
       <h2
         className={cn(
-          'text-[clamp(1.75rem,3.5vw,2.75rem)] font-display font-bold leading-[1.1] tracking-tight mb-5',
+          'font-display mb-5 text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.1] font-bold tracking-tight',
           theme === 'dark' ? 'text-white' : 'text-text-dark'
         )}
       >

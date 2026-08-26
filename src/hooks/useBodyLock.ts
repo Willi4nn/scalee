@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 /**
  * Hook to lock the body scroll when a modal or mobile menu is open.
@@ -6,13 +6,13 @@ import { useEffect } from "react";
 export function useBodyLock(isLocked: boolean) {
   useEffect(() => {
     if (isLocked) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = 'unset';
     }
 
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = 'unset';
     };
   }, [isLocked]);
 }

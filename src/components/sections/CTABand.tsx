@@ -7,14 +7,14 @@ export function CTABand() {
   return (
     <section
       id="contato"
-      className="pb-15 md:pb-28 pt-8 md:pt-12 bg-bg relative"
+      className="bg-bg relative pt-8 pb-15 md:pt-12 md:pb-28"
     >
       <div className="container">
-        <div className="bg-slate-950 rounded-3xl p-8 md:p-[64px_48px] relative overflow-hidden shadow-2xl z-10 grid grid-cols-1 md:grid-cols-[1.5fr_0.5fr] items-center gap-8 border border-white/10">
-          <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[70%] bg-primary/30 rounded-full blur-[120px] pointer-events-none z-0" />
-          <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[70%] bg-secondary/30 rounded-full blur-[120px] pointer-events-none z-0" />
+        <div className="relative z-10 grid grid-cols-1 items-center gap-8 overflow-hidden rounded-3xl border border-white/10 bg-slate-950 p-8 shadow-2xl md:grid-cols-[1.5fr_0.5fr] md:p-[64px_48px]">
+          <div className="bg-primary/30 pointer-events-none absolute top-[-20%] left-[-10%] z-0 h-[70%] w-[50%] rounded-full blur-[120px]" />
+          <div className="bg-secondary/30 pointer-events-none absolute right-[-10%] bottom-[-20%] z-0 h-[70%] w-[50%] rounded-full blur-[120px]" />
 
-          <div className="absolute inset-0 pointer-events-none z-0 opacity-50 mix-blend-screen">
+          <div className="pointer-events-none absolute inset-0 z-0 opacity-50 mix-blend-screen">
             <DarkVeil
               hueShift={281}
               speed={0.6}
@@ -24,10 +24,10 @@ export function CTABand() {
           </div>
 
           <div className="relative z-10">
-            <h2 className="text-white text-[clamp(2rem,3.5vw,2.75rem)] leading-[1.1] mb-4 font-bold tracking-tight">
+            <h2 className="mb-4 text-[clamp(2rem,3.5vw,2.75rem)] leading-[1.1] font-bold tracking-tight text-white">
               Pronto para transformar seu processo em crescimento?
             </h2>
-            <p className="text-slate-300 text-[1.1rem] max-w-120 mb-8">
+            <p className="mb-8 max-w-120 text-[1.1rem] text-slate-300">
               Agende uma conversa gratuita e descubra onde a tecnologia pode
               gerar mais eficiência para sua empresa.
             </p>
@@ -36,8 +36,8 @@ export function CTABand() {
             </Button>
           </div>
 
-          <div className="hidden md:flex justify-center relative z-10">
-            <Rocket className="w-48 h-48 text-white/90" strokeWidth={1} />
+          <div className="relative z-10 hidden justify-center md:flex">
+            <Rocket className="h-48 w-48 text-white/90" strokeWidth={1} />
           </div>
         </div>
       </div>

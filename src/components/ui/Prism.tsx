@@ -453,8 +453,7 @@ const Prism: React.FC<PrismProps> = ({
       }
       if (suspendWhenOffscreen) {
         const io = (container as PrismContainer).__prismIO as
-          | IntersectionObserver
-          | undefined;
+          IntersectionObserver | undefined;
         if (io) io.disconnect();
         delete (container as PrismContainer).__prismIO;
       }
@@ -480,7 +479,7 @@ const Prism: React.FC<PrismProps> = ({
     suspendWhenOffscreen,
   ]);
 
-  return <div className="w-full h-full relative" ref={containerRef} />;
+  return <div className="relative h-full w-full" ref={containerRef} />;
 };
 
 export default Prism;

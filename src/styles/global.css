@@ -1,21 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   /* --- Cores Base --- */
-  --color-primary: #FF007F;
-  --color-primary-hover: #E0006F;
-  --color-secondary: #3EACF9;
+  --color-primary: #ff007f;
+  --color-primary-hover: #e0006f;
+  --color-secondary: #3eacf9;
 
-  --color-bg: #FFFFFF;
-  --color-bg-alt: #F7F9FC;
-  --color-text-dark: #0F172A;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f7f9fc;
+  --color-text-dark: #0f172a;
   --color-text: #334155;
-  --color-text-muted: #64748B;
-  --color-text-faint: #94A3B8;
+  --color-text-muted: #64748b;
+  --color-text-faint: #94a3b8;
 
-  --color-border: #E2E8F0;
-  --color-border-strong: #CBD5E1;
+  --color-border: #e2e8f0;
+  --color-border-strong: #cbd5e1;
 
   /* --- Tipografia --- */
   --font-display: 'Space Grotesk', sans-serif;
@@ -24,11 +24,18 @@
 
   /* --- Sombras --- */
   --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
-  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
-  --shadow-float: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.05);
-  --shadow-primary: 0 4px 14px 0 color-mix(in srgb, var(--color-primary) 25%, transparent);
-  --shadow-primary-hover: 0 6px 20px 0 color-mix(in srgb, var(--color-primary) 35%, transparent);
+  --shadow-md:
+    0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+  --shadow-lg:
+    0 10px 15px -3px rgba(15, 23, 42, 0.08),
+    0 4px 6px -4px rgba(15, 23, 42, 0.04);
+  --shadow-float:
+    0 20px 25px -5px rgba(15, 23, 42, 0.1),
+    0 8px 10px -6px rgba(15, 23, 42, 0.05);
+  --shadow-primary: 0 4px 14px 0
+    color-mix(in srgb, var(--color-primary) 25%, transparent);
+  --shadow-primary-hover: 0 6px 20px 0
+    color-mix(in srgb, var(--color-primary) 35%, transparent);
 
   /* --- Raios de Borda --- */
   --radius-sm: 8px;
@@ -42,16 +49,31 @@
   --animate-ribbon-3: ribbon-3 10s ease-in-out infinite;
 
   @keyframes ribbon-1 {
-    0%, 100% { transform: translateY(0px) scaleY(1); }
-    50% { transform: translateY(-15px) scaleY(1.05); }
+    0%,
+    100% {
+      transform: translateY(0px) scaleY(1);
+    }
+    50% {
+      transform: translateY(-15px) scaleY(1.05);
+    }
   }
   @keyframes ribbon-2 {
-    0%, 100% { transform: translateY(0px) scaleY(1); }
-    50% { transform: translateY(15px) scaleY(1.08); }
+    0%,
+    100% {
+      transform: translateY(0px) scaleY(1);
+    }
+    50% {
+      transform: translateY(15px) scaleY(1.08);
+    }
   }
   @keyframes ribbon-3 {
-    0%, 100% { transform: translateY(0px) scaleY(1); }
-    50% { transform: translateY(-10px) scaleY(1.05); }
+    0%,
+    100% {
+      transform: translateY(0px) scaleY(1);
+    }
+    50% {
+      transform: translateY(-10px) scaleY(1.05);
+    }
   }
 }
 
@@ -69,23 +91,43 @@
 
 @utility mesh-bg {
   background-image:
-    radial-gradient(800px circle at 15% 50%, color-mix(in srgb, var(--color-primary) 5%, transparent), transparent 40%),
-    radial-gradient(800px circle at 85% 30%, color-mix(in srgb, var(--color-secondary) 6%, transparent), transparent 40%);
+    radial-gradient(
+      800px circle at 15% 50%,
+      color-mix(in srgb, var(--color-primary) 5%, transparent),
+      transparent 40%
+    ),
+    radial-gradient(
+      800px circle at 85% 30%,
+      color-mix(in srgb, var(--color-secondary) 6%, transparent),
+      transparent 40%
+    );
 }
 
 @utility text-gradient {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 @utility bg-gradient-brand {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
+  );
 }
 
 @utility bg-gradient-soft {
-  background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 8%, transparent) 0%, color-mix(in srgb, var(--color-secondary) 12%, transparent) 100%);
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--color-primary) 8%, transparent) 0%,
+    color-mix(in srgb, var(--color-secondary) 12%, transparent) 100%
+  );
 }
 
 /* =========================================
@@ -100,7 +142,12 @@
     line-height: 1.6;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-bold text-text-dark tracking-[-0.02em];
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display text-text-dark font-bold tracking-[-0.02em];
   }
 }

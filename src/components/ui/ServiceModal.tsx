@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import type { Service } from '../../data/content';
 import { useBodyLock } from '../../hooks/useBodyLock';
 import { Button } from './Button';
+import { SectionBadge } from './SectionBadge';
 
 interface ServiceModalProps {
   isOpen: boolean;
@@ -31,13 +32,13 @@ export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-100 flex items-center justify-center p-4 sm:p-6">
+        <div className="fixed inset-0 z-100 flex items-center justify-center sm:p-6">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="absolute inset-0 bg-slate-900/30 backdrop-blur-sm"
+            className="absolute inset-0 bg-slate-900/30 backdrop-blur-sm sm:block"
             aria-hidden="true"
           />
 
@@ -46,62 +47,62 @@ export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 15 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="relative w-full max-w-4xl bg-white rounded-3xl shadow-2xl flex flex-col max-h-[95vh] overflow-hidden"
+            className="relative flex h-dvh w-full max-w-4xl flex-col overflow-hidden bg-white shadow-2xl sm:h-auto sm:max-h-[90vh] sm:rounded-4xl"
             role="dialog"
             aria-modal="true"
             aria-labelledby="modal-title"
           >
-            <header className="flex items-center justify-between p-6 md:px-10 md:pt-8 shrink-0">
-              <div className="flex items-center gap-4">
-                <span className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary font-mono font-bold text-lg">
+            <header className="border-border/40 flex shrink-0 items-start justify-between border-b p-5 pt-8 sm:items-center sm:p-8 md:px-10">
+              <div className="flex items-start gap-3 pr-3 sm:items-center sm:gap-4">
+                <span className="bg-primary/10 text-primary flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-mono text-base font-bold sm:h-12 sm:w-12 sm:text-lg">
                   {service.num}
                 </span>
                 <h2
                   id="modal-title"
-                  className="text-xl md:text-2xl font-bold text-text-dark tracking-tight"
+                  className="text-text-dark mt-1.5 text-[1.1rem] leading-tight font-bold tracking-tight sm:mt-0 sm:text-xl md:text-2xl"
                 >
                   {service.title}
                 </h2>
               </div>
               <button
                 onClick={onClose}
-                className="p-2.5 rounded-full text-text-faint hover:text-text-dark hover:bg-slate-100 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                className="text-text-faint hover:text-text-dark focus-visible:ring-primary -mr-2 shrink-0 rounded-full p-2 transition-colors outline-none hover:bg-slate-100 focus-visible:ring-2 sm:mr-0"
                 aria-label="Fechar modal"
               >
-                <X className="w-6 h-6" strokeWidth={2} />
+                <X className="h-6 w-6" strokeWidth={2} />
               </button>
             </header>
 
-            <main className="p-6 md:px-10 md:pb-12 overflow-y-auto text-center space-y-12 flex-1">
-              <section className="max-w-2xl mx-auto space-y-4">
+            <main className="flex-1 scrollbar-thin scrollbar-thumb-slate-300 scrollbar-track-transparent space-y-8 overflow-y-auto p-5 pb-8 text-left hover:scrollbar-thumb-slate-400 sm:space-y-12 sm:p-8 sm:text-center md:px-10">
+              <section className="mx-auto max-w-2xl space-y-3 sm:space-y-4">
                 <SectionBadge
                   color="bg-secondary"
                   textColor="text-secondary"
                   label="O Problema"
                 />
-                <p className="text-text-muted text-lg leading-relaxed">
+                <p className="text-text-muted text-[0.95rem] leading-relaxed sm:text-lg">
                   {service.modalDetails.pain}
                 </p>
               </section>
 
-              <section className="max-w-3xl mx-auto space-y-6">
+              <section className="mx-auto max-w-3xl space-y-4 sm:space-y-6">
                 <SectionBadge
                   color="bg-primary"
                   textColor="text-primary"
                   label="A Solução Scalee"
                 />
-                <p className="text-text-dark font-bold text-lg md:text-xl leading-relaxed">
+                <p className="text-text-dark text-[1.05rem] leading-relaxed font-bold sm:text-lg md:text-xl">
                   {service.modalDetails.solution}
                 </p>
 
-                <ul className="grid sm:grid-cols-2 gap-4 text-left w-fit mx-auto pt-2">
+                <ul className="mx-auto flex w-full flex-col gap-3 pt-2 text-left sm:grid sm:w-fit sm:grid-cols-2 sm:gap-4">
                   {service.modalDetails.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center gap-3">
+                    <li key={idx} className="flex items-start gap-3">
                       <CheckCircle2
-                        className="w-5 h-5 text-emerald-500 shrink-0"
+                        className="mt-0.5 h-5 w-5 shrink-0 text-emerald-500"
                         strokeWidth={2.5}
                       />
-                      <span className="text-[0.95rem] text-text-muted font-medium">
+                      <span className="text-text-muted text-[0.9rem] leading-snug font-medium sm:text-[0.95rem]">
                         {feature}
                       </span>
                     </li>
@@ -110,8 +111,8 @@ export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
               </section>
             </main>
 
-            <footer className="p-6 md:px-10 bg-slate-50 flex flex-col sm:flex-row items-center justify-between gap-6 shrink-0">
-              <p className="text-text-muted text-center sm:text-left">
+            <footer className="border-border/40 relative z-10 flex shrink-0 flex-col items-center justify-between gap-4 border-t bg-slate-50 p-5 pb-8 shadow-[0_-8px_20px_-3px_rgba(0,0,0,0.05)] sm:flex-row sm:p-6 sm:pb-6 md:px-10">
+              <p className="text-text-muted text-center text-[0.9rem] sm:text-left sm:text-base">
                 Vamos entender o seu cenário de forma{' '}
                 <strong className="text-text-dark font-bold">
                   100% gratuita
@@ -121,7 +122,7 @@ export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
               <Button
                 href={whatsappLink}
                 icon
-                className="w-full sm:w-auto shadow-primary"
+                className="shadow-primary w-full py-3 sm:w-auto sm:py-2"
               >
                 Falar com especialista
               </Button>
@@ -130,27 +131,5 @@ export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
         </div>
       )}
     </AnimatePresence>
-  );
-}
-
-/* ==========================================================================
-   SUBCOMPONENTE REUTILIZÁVEL (DRY)
-========================================================================== */
-function SectionBadge({
-  color,
-  textColor,
-  label,
-}: {
-  color: string;
-  textColor: string;
-  label: string;
-}) {
-  return (
-    <h3
-      className={`font-mono text-xs font-bold tracking-widest uppercase flex items-center justify-center gap-2.5 ${textColor}`}
-    >
-      <span className={`w-2 h-2 rounded-full ${color}`} />
-      {label}
-    </h3>
   );
 }

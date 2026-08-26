@@ -47,7 +47,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const arrow = icon && (
       <ArrowRight
-        className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-[3px]"
+        className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-[3px]"
         aria-hidden="true"
       />
     );

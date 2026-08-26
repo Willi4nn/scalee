@@ -7,12 +7,12 @@ import { WHATSAPP_URL } from '../../data/content';
   href={WHATSAPP_URL}
   target="_blank"
   rel="noopener noreferrer"
-  class="fixed bottom-6 right-6 z-30 flex items-center justify-center w-14 h-14 rounded-full bg-emerald-500 text-white shadow-lg shadow-emerald-500/30 hover:bg-emerald-600 transition-transform hover:-translate-y-1 group outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
+  class="group fixed right-6 bottom-6 z-30 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-white shadow-lg shadow-emerald-500/30 transition-transform outline-none hover:-translate-y-1 hover:bg-emerald-600 focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
   aria-label="Falar com especialista no WhatsApp"
 >
   <span
-    class="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-75 group-hover:opacity-0 transition-opacity"
+    class="absolute inset-0 animate-ping rounded-full bg-emerald-500 opacity-75 transition-opacity group-hover:opacity-0"
   ></span>
 
-  <MessageCircle stroke-width="2.5" class="w-7 h-7 relative z-10" />
+  <MessageCircle stroke-width="2.5" class="relative z-10 h-7 w-7" />
 </a>

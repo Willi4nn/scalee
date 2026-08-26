@@ -1,4 +1,4 @@
-import { ArrowUpRight, Code2 } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'motion/react';
 import { PROJECTS } from '../../data/content';
 import { cn } from '../../lib/utils';
@@ -8,9 +8,9 @@ export function Projects() {
   return (
     <section
       id="projects"
-      className="py-20 md:py-32 bg-white text-center border-t border-border/50 overflow-hidden"
+      className="border-border/50 overflow-hidden border-t bg-white py-20 text-center md:py-32"
     >
-      <div className="container px-6 md:px-8 mx-auto">
+      <div className="container mx-auto px-6 md:px-8">
         <SectionHeader
           eyebrow="Cases de Sucesso"
           eyebrowColor="primary"
@@ -19,7 +19,7 @@ export function Projects() {
           Projetos que entregam resultado.
         </SectionHeader>
 
-        <div className="flex flex-col gap-24 md:gap-40 mt-16 md:mt-28 text-left">
+        <div className="mt-16 flex flex-col gap-24 text-left md:mt-28 md:gap-40">
           {PROJECTS.map((item, index) => {
             const isEven = index % 2 === 0;
 
@@ -27,7 +27,7 @@ export function Projects() {
               <motion.article
                 key={item.title}
                 className={cn(
-                  'flex flex-col lg:items-center gap-10 md:gap-16 group',
+                  'group flex flex-col gap-10 md:gap-16 lg:items-center',
                   isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'
                 )}
                 initial={{ opacity: 0, y: 30 }}
@@ -35,78 +35,66 @@ export function Projects() {
                 viewport={{ once: true, margin: '-100px' }}
                 transition={{ duration: 0.6, ease: 'easeOut' }}
               >
-                <div className="w-full lg:w-[55%] relative flex items-center justify-center">
+                <div className="relative flex w-full items-center justify-center lg:w-[55%]">
                   {item.image ? (
                     <img
                       src={item.image}
                       alt={`Mockup do projeto ${item.title}`}
-                      className="relative z-10 w-full h-auto max-h-100 lg:max-h-125 object-contain drop-shadow-[0_15px_25px_rgba(0,0,0,0.08)] transition-all duration-700 ease-out group-hover:-translate-y-3 group-hover:drop-shadow-[0_25px_35px_rgba(0,0,0,0.12)]"
+                      className="relative z-10 h-auto max-h-100 w-full object-contain drop-shadow-[0_15px_25px_rgba(0,0,0,0.08)] transition-all duration-700 ease-out group-hover:-translate-y-3 group-hover:drop-shadow-[0_25px_35px_rgba(0,0,0,0.12)] lg:max-h-125"
                       loading="lazy"
                     />
                   ) : (
-                    <div className="relative z-10 w-full max-h-87.5 aspect-16/10 flex items-center justify-center bg-slate-100 rounded-2xl border border-border/50">
-                      <span className="text-slate-400 font-medium">
+                    <div className="border-border/50 relative z-10 flex aspect-16/10 max-h-87.5 w-full items-center justify-center rounded-2xl border bg-slate-100">
+                      <span className="font-medium text-slate-400">
                         Em desenvolvimento
                       </span>
                     </div>
                   )}
                 </div>
 
-                <div className="w-full lg:w-[45%] flex flex-col items-start lg:py-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="font-mono text-[0.75rem] font-bold tracking-widest uppercase text-primary">
+                <div className="flex w-full flex-col items-start lg:w-[45%] lg:py-6">
+                  <div className="mb-4 flex items-center gap-3">
+                    <span className="text-primary font-mono text-[0.75rem] font-bold tracking-widest uppercase">
                       {item.tag || 'Case de Sucesso'}
                     </span>
-                    <span className="px-2 py-0.5 rounded-md bg-slate-100 text-slate-500 text-[0.7rem] font-bold font-mono">
+                    <span className="rounded-md bg-slate-100 px-2 py-0.5 font-mono text-[0.7rem] font-bold text-slate-500">
                       {item.year}
                     </span>
                   </div>
 
-                  <h3 className="text-[2rem] md:text-[2.5rem] leading-[1.1] font-display font-bold text-text-dark tracking-tight mb-5 group-hover:text-primary transition-colors duration-300">
+                  <h3 className="font-display text-text-dark group-hover:text-primary mb-5 text-[2rem] leading-[1.1] font-bold tracking-tight transition-colors duration-300 md:text-[2.5rem]">
                     {item.title}
                   </h3>
 
-                  <p className="text-[1.05rem] md:text-[1.1rem] text-text-muted leading-relaxed mb-8">
+                  <p className="text-text-muted mb-8 text-[1.05rem] leading-relaxed md:text-[1.1rem]">
                     {item.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-2.5 mb-10">
+                  <div className="mb-10 flex flex-wrap gap-2.5">
                     {item.skills.map((skill) => (
                       <span
                         key={skill}
-                        className="px-3.5 py-1.5 bg-white border border-border/80 text-text-muted text-[0.8rem] font-semibold rounded-full shadow-sm"
+                        className="border-border/80 text-text-muted rounded-full border bg-white px-3.5 py-1.5 text-[0.8rem] font-semibold shadow-sm"
                       >
                         {skill}
                       </span>
                     ))}
                   </div>
 
-                  <div className="flex items-center gap-8 mt-auto pt-6 border-t border-border/60 w-full">
+                  <div className="border-border/60 mt-auto flex w-full items-center gap-8 border-t pt-6">
                     {item.projectUrl && item.projectUrl !== '#' && (
                       <a
                         href={item.projectUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-[0.95rem] font-bold text-primary relative overflow-hidden group/link outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
+                        className="text-primary group/link focus-visible:ring-primary relative inline-flex items-center gap-2 overflow-hidden rounded-sm text-[0.95rem] font-bold outline-none focus-visible:ring-2"
                       >
                         <span className="relative z-10">Acessar projeto</span>
                         <ArrowUpRight
-                          className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
+                          className="h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
                           strokeWidth={2.5}
                         />
-                        <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary/20 scale-x-0 group-hover/link:scale-x-100 origin-left transition-transform duration-300" />
-                      </a>
-                    )}
-
-                    {item.githubUrl && (
-                      <a
-                        href={item.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-[0.95rem] font-bold text-text-muted hover:text-text-dark transition-colors outline-none focus-visible:ring-2 focus-visible:ring-text-dark rounded-sm"
-                      >
-                        Ver código
-                        <Code2 className="w-4 h-4" />
+                        <span className="bg-primary/20 absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 transition-transform duration-300 group-hover/link:scale-x-100" />
                       </a>
                     )}
                   </div>

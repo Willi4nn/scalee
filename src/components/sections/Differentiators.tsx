@@ -22,13 +22,13 @@ export function Differentiators() {
   return (
     <section
       id="tecnologia"
-      className="relative py-16 md:py-28 bg-slate-950 overflow-hidden scroll-mt-24"
+      className="relative scroll-mt-24 overflow-hidden bg-slate-950 py-16 md:py-28"
     >
       <div aria-hidden="true" />
 
-      <div className="container z-10">
+      <div className="z-10 container">
         <motion.header
-          className="max-w-2xl mx-auto mb-12 md:mb-16"
+          className="mx-auto mb-12 max-w-2xl md:mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
@@ -45,7 +45,7 @@ export function Differentiators() {
         </motion.header>
 
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+          className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
           variants={gridVariants}
           initial="hidden"
           whileInView="show"
@@ -57,27 +57,27 @@ export function Differentiators() {
             return (
               <motion.article
                 key={item.title}
-                className="group relative overflow-hidden rounded-2xl border border-white/5 bg-white/5 p-7 transition-colors duration-300 hover:border-primary/30 hover:bg-white/10"
+                className="group hover:border-primary/30 relative overflow-hidden rounded-2xl border border-white/5 bg-white/5 p-7 transition-colors duration-300 hover:bg-white/10"
               >
                 <div
-                  className="pointer-events-none absolute -top-8 -right-8 w-28 h-28 rounded-full bg-primary/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  className="bg-primary/20 pointer-events-none absolute -top-8 -right-8 h-28 w-28 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
                   aria-hidden="true"
                 />
 
-                <div className="relative flex items-center justify-center w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 mb-5 transition-transform duration-300 group-hover:scale-105">
+                <div className="bg-primary/10 border-primary/20 relative mb-5 flex h-11 w-11 items-center justify-center rounded-xl border transition-transform duration-300 group-hover:scale-105">
                   {Icon && (
                     <Icon
-                      className="w-5 h-5 text-primary"
+                      className="text-primary h-5 w-5"
                       strokeWidth={2}
                       aria-hidden="true"
                     />
                   )}
                 </div>
 
-                <h3 className="relative text-white font-semibold text-[1.05rem] leading-snug mb-2">
+                <h3 className="relative mb-2 text-[1.05rem] leading-snug font-semibold text-white">
                   {item.title}
                 </h3>
-                <p className="relative text-slate-400 text-[0.9rem] leading-relaxed">
+                <p className="relative text-[0.9rem] leading-relaxed text-slate-400">
                   {item.desc}
                 </p>
               </motion.article>

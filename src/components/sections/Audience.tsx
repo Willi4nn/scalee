@@ -31,12 +31,12 @@ const styles = `
 const TagItem = ({ tag }: { tag: AudienceTag }) => {
   const IconComponent = Icons[tag.icon as keyof typeof Icons] as ElementType;
   return (
-    <div className="flex items-center gap-2 bg-white border border-border/80 hover:border-primary/40 hover:shadow-md transition-all duration-300 rounded-full py-2.5 px-5 shadow-sm cursor-default">
+    <div className="border-border/80 hover:border-primary/40 flex cursor-default items-center gap-2 rounded-full border bg-white px-5 py-2.5 shadow-sm transition-all duration-300 hover:shadow-md">
       <IconComponent
-        className="w-4 h-4 text-primary shrink-0"
+        className="text-primary h-4 w-4 shrink-0"
         strokeWidth={2.5}
       />
-      <span className="text-[0.85rem] font-bold text-text-dark tracking-tight whitespace-nowrap">
+      <span className="text-text-dark text-[0.85rem] font-bold tracking-tight whitespace-nowrap">
         {tag.label}
       </span>
     </div>
@@ -53,15 +53,15 @@ const TagBlock = ({ tags }: { tags: typeof AUDIENCE_TAGS }) => (
 
 export function Audience() {
   return (
-    <section className="py-15 md:py-28 bg-white border-t border-border/60 overflow-hidden flex flex-col items-center">
+    <section className="border-border/60 flex flex-col items-center overflow-hidden border-t bg-white py-15 md:py-28">
       <style>{styles}</style>
 
-      <div className="container relative z-10 mb-8 md:mb-12">
+      <div className="relative z-10 container mb-8 md:mb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
-          className="flex flex-col items-center text-center max-w-175 mx-auto"
+          className="mx-auto flex max-w-175 flex-col items-center text-center"
         >
           <SectionHeader eyebrow="Para quem é" eyebrowColor="primary">
             Se existe um processo repetitivo, existe uma oportunidade de
@@ -70,15 +70,15 @@ export function Audience() {
         </motion.div>
       </div>
 
-      <div className="w-full mask-edges flex flex-col gap-4 pb-4">
-        <div className="flex w-max animate-scroll-left hover:[animation-play-state:paused]">
+      <div className="mask-edges flex w-full flex-col gap-4 pb-4">
+        <div className="animate-scroll-left flex w-max hover:[animation-play-state:paused]">
           <TagBlock tags={ROW_1} />
           <TagBlock tags={ROW_1} />
           <TagBlock tags={ROW_1} />
           <TagBlock tags={ROW_1} />
         </div>
 
-        <div className="flex w-max animate-scroll-right hover:[animation-play-state:paused]">
+        <div className="animate-scroll-right flex w-max hover:[animation-play-state:paused]">
           <TagBlock tags={ROW_2} />
           <TagBlock tags={ROW_2} />
           <TagBlock tags={ROW_2} />

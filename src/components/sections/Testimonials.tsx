@@ -24,9 +24,9 @@ export function Testimonials() {
   return (
     <section
       id="depoimentos"
-      className="py-16 md:py-28 bg-bg-alt text-center overflow-hidden"
+      className="bg-bg-alt overflow-hidden py-16 text-center md:py-28"
     >
-      <div className="container px-4 md:px-8 mx-auto">
+      <div className="container mx-auto px-4 md:px-8">
         <SectionHeader
           eyebrow="Depoimentos"
           eyebrowColor="primary"
@@ -35,57 +35,57 @@ export function Testimonials() {
           Quem trabalha com a Scalee sente a diferença.
         </SectionHeader>
 
-        <div className="hidden sm:flex items-center justify-end gap-3 mb-6">
+        <div className="mb-6 hidden items-center justify-end gap-3 sm:flex">
           <button
             onClick={() => scroll('left')}
-            className="flex items-center justify-center w-11 h-11 rounded-full bg-white border border-border text-text-dark hover:bg-slate-50 hover:border-border-strong transition-all active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-primary shadow-sm"
+            className="border-border text-text-dark hover:border-border-strong focus-visible:ring-primary flex h-11 w-11 items-center justify-center rounded-full border bg-white shadow-sm transition-all outline-none hover:bg-slate-50 focus-visible:ring-2 active:scale-95"
             aria-label="Rolar para o depoimento anterior"
           >
-            <ChevronLeft className="w-5 h-5" />
+            <ChevronLeft className="h-5 w-5" />
           </button>
           <button
             onClick={() => scroll('right')}
-            className="flex items-center justify-center w-11 h-11 rounded-full bg-white border border-border text-text-dark hover:bg-slate-50 hover:border-border-strong transition-all active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-primary shadow-sm"
+            className="border-border text-text-dark hover:border-border-strong focus-visible:ring-primary flex h-11 w-11 items-center justify-center rounded-full border bg-white shadow-sm transition-all outline-none hover:bg-slate-50 focus-visible:ring-2 active:scale-95"
             aria-label="Rolar para o próximo depoimento"
           >
-            <ChevronRight className="w-5 h-5" />
+            <ChevronRight className="h-5 w-5" />
           </button>
         </div>
 
         <div
           ref={scrollContainerRef}
-          className="flex gap-4 sm:gap-6 text-left overflow-x-auto snap-x snap-mandatory pb-8 pt-2 px-4 sm:px-1 -mx-4 sm:mx-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none focus-visible:ring-2 focus-visible:ring-primary rounded-2xl"
+          className="focus-visible:ring-primary -mx-4 flex snap-x snap-mandatory scrollbar-none gap-4 overflow-x-auto rounded-2xl px-4 pt-2 pb-8 text-left [-ms-overflow-style:none] focus-visible:ring-2 sm:mx-0 sm:gap-6 sm:px-1 [&::-webkit-scrollbar]:hidden"
           tabIndex={0}
           aria-label="Lista de depoimentos"
         >
           {TESTIMONIALS.map((test, i) => (
             <motion.div
               key={test.name}
-              className="w-[85vw] sm:w-105 lg:w-112.5 shrink-0 snap-start sm:snap-center bg-white border border-border/80 rounded-2xl p-6 md:p-8 flex flex-col shadow-sm hover:shadow-md transition-shadow"
+              className="border-border/80 flex w-[85vw] shrink-0 snap-start flex-col rounded-2xl border bg-white p-6 shadow-sm transition-shadow hover:shadow-md sm:w-105 sm:snap-center md:p-8 lg:w-112.5"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ delay: i * 0.1 }}
             >
-              <Quote className="w-8 h-8 text-primary/20 mb-5" />
-              <p className="text-[0.95rem] md:text-[1rem] text-text-muted leading-relaxed mb-8 grow font-medium">
+              <Quote className="text-primary/20 mb-5 h-8 w-8" />
+              <p className="text-text-muted mb-8 grow text-[0.95rem] leading-relaxed font-medium md:text-[1rem]">
                 "{test.quote}"
               </p>
 
-              <div className="flex items-center justify-between border-t border-border/60 pt-5 mt-auto">
+              <div className="border-border/60 mt-auto flex items-center justify-between border-t pt-5">
                 <div className="flex items-center gap-3.5">
                   <div>
-                    <p className="text-[0.9rem] font-bold text-text-dark leading-tight">
+                    <p className="text-text-dark text-[0.9rem] leading-tight font-bold">
                       {test.name}
                     </p>
-                    <p className="text-[0.75rem] text-text-muted mt-0.5">
+                    <p className="text-text-muted mt-0.5 text-[0.75rem]">
                       {test.role}
                     </p>
                   </div>
                 </div>
-                <div className="flex gap-0.5 text-amber-400 shrink-0">
+                <div className="flex shrink-0 gap-0.5 text-amber-400">
                   {[...Array(5)].map((_, j) => (
-                    <Star key={`star-${j}`} className="w-4 h-4 fill-current" />
+                    <Star key={`star-${j}`} className="h-4 w-4 fill-current" />
                   ))}
                 </div>
               </div>

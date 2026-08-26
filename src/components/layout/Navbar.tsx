@@ -16,10 +16,10 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          'fixed top-0 inset-x-0 z-50 transition-all duration-300 ease-out',
+          'fixed inset-x-0 top-0 z-50 transition-all duration-300 ease-out',
           scrolled || mobileMenuOpen
-            ? 'bg-white/80 backdrop-blur-md border-b border-border/50 shadow-sm'
-            : 'bg-transparent border-b border-transparent'
+            ? 'border-border/50 border-b bg-white/80 shadow-sm backdrop-blur-md'
+            : 'border-b border-transparent bg-transparent'
         )}
       >
         <div
@@ -30,31 +30,31 @@ export function Navbar() {
         >
           <a
             href="#top"
-            className="flex items-center gap-2 font-display font-bold text-2xl tracking-tight text-text-dark group relative z-50 outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md"
+            className="font-display text-text-dark group focus-visible:ring-primary relative z-50 flex items-center gap-2 rounded-md text-2xl font-bold tracking-tight outline-none focus-visible:ring-2"
             aria-label="Voltar para o topo"
           >
             <img
               src="/scalee-logo.svg"
               alt="Scalee Logo"
-              className="h-7 w-auto group-hover:-translate-y-0.5 transition-transform duration-300"
+              className="h-7 w-auto transition-transform duration-300 group-hover:-translate-y-0.5"
             />
             Scalee
           </a>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden items-center gap-8 md:flex">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="relative text-[0.95rem] font-medium text-text-muted hover:text-text-dark transition-colors duration-300 py-2 outline-none focus-visible:text-primary group"
+                className="text-text-muted hover:text-primary-hover focus-visible:text-primary group relative py-2 text-[0.95rem] font-medium transition-colors duration-300 outline-none"
               >
                 {link.label}
-                <span className="absolute bottom-1 left-0 w-full h-0.5 bg-text-dark origin-left scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100 rounded-full" />
+                <span className="bg-primary-hover absolute bottom-1 left-0 h-0.5 w-full origin-left scale-x-0 rounded-full transition-transform duration-300 ease-out group-hover:scale-x-100" />
               </a>
             ))}
           </nav>
 
-          <div className="flex items-center gap-2 md:gap-4 relative z-50">
+          <div className="relative z-50 flex items-center gap-2 md:gap-4">
             <div className="hidden md:block">
               <Button href={WHATSAPP_URL} size="sm" icon>
                 Falar com especialista
@@ -62,16 +62,16 @@ export function Navbar() {
             </div>
 
             <button
-              className="md:hidden flex items-center justify-center p-2.5 -mr-2 text-text-dark rounded-xl hover:bg-slate-100 transition-colors active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              className="text-text-dark focus-visible:ring-primary -mr-2 flex items-center justify-center rounded-xl p-2.5 transition-colors outline-none hover:bg-slate-100 focus-visible:ring-2 active:scale-95 md:hidden"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-menu"
             >
               {mobileMenuOpen ? (
-                <X className="w-6 h-6" aria-hidden="true" />
+                <X className="h-6 w-6" aria-hidden="true" />
               ) : (
-                <Menu className="w-6 h-6" aria-hidden="true" />
+                <Menu className="h-6 w-6" aria-hidden="true" />
               )}
             </button>
           </div>
@@ -83,23 +83,23 @@ export function Navbar() {
         role="dialog"
         aria-modal="true"
         className={cn(
-          'fixed inset-0 z-40 overflow-y-auto transition-all duration-300 ease-out md:hidden bg-white/95 backdrop-blur-md',
+          'fixed inset-0 z-40 overflow-y-auto bg-white/95 backdrop-blur-md transition-all duration-300 ease-out md:hidden',
           mobileMenuOpen
-            ? 'opacity-100 translate-y-0'
-            : 'opacity-0 -translate-y-4 pointer-events-none'
+            ? 'translate-y-0 opacity-100'
+            : 'pointer-events-none -translate-y-4 opacity-0'
         )}
         onClick={() => setMobileMenuOpen(false)}
       >
         <div
-          className="flex flex-col px-6 pt-24 pb-12 min-h-dvh"
+          className="flex min-h-dvh flex-col px-6 pt-24 pb-12"
           onClick={(e) => e.stopPropagation()}
         >
-          <nav className="flex flex-col gap-1 flex-1 mt-4">
+          <nav className="mt-4 flex flex-1 flex-col gap-1">
             {NAV_LINKS.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="py-4 text-2xl font-display font-bold text-text-dark border-b border-border/40 active:text-primary transition-colors"
+                className="font-display text-text-dark border-border/40 active:text-primary border-b py-4 text-2xl font-bold transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.label}
@@ -110,7 +110,7 @@ export function Navbar() {
           <div className="mt-auto pt-8">
             <Button
               href={WHATSAPP_URL}
-              className="w-full justify-center shadow-primary"
+              className="shadow-primary w-full justify-center"
               size="md"
               icon
             >
