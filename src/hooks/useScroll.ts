@@ -5,11 +5,15 @@ export function useScroll(threshold = 20) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > threshold);
+      const isScrolled = window.scrollY > threshold;
+
+      setScrolled((prev) => {
+        if (prev !== isScrolled) return isScrolled;
+        return prev;
+      });
     };
 
     handleScroll();
-
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [threshold]);

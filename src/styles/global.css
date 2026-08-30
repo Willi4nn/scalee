@@ -150,4 +150,9 @@
   h6 {
     @apply font-display text-text-dark font-bold tracking-[-0.02em];
   }
+
+  section[id],
+  div[id] {
+    @apply scroll-mt-24;
+  }
 }

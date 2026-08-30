@@ -1,4 +1,5 @@
 import { Menu, X } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
 import { useState } from 'react';
 import { NAV_LINKS, WHATSAPP_URL } from '../../data/content';
 import { useBodyLock } from '../../hooks/useBodyLock';
@@ -78,47 +79,56 @@ export function Navbar() {
         </div>
       </header>
 
-      <div
-        id="mobile-menu"
-        role="dialog"
-        aria-modal="true"
-        className={cn(
-          'fixed inset-0 z-40 overflow-y-auto bg-white/95 backdrop-blur-md transition-all duration-300 ease-out md:hidden',
-          mobileMenuOpen
-            ? 'translate-y-0 opacity-100'
-            : 'pointer-events-none -translate-y-4 opacity-0'
-        )}
-        onClick={() => setMobileMenuOpen(false)}
-      >
-        <div
-          className="flex min-h-dvh flex-col px-6 pt-24 pb-12"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <nav className="mt-4 flex flex-1 flex-col gap-1">
-            {NAV_LINKS.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="font-display text-text-dark border-border/40 active:text-primary border-b py-4 text-2xl font-bold transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-
-          <div className="mt-auto pt-8">
-            <Button
-              href={WHATSAPP_URL}
-              className="shadow-primary w-full justify-center"
-              size="md"
-              icon
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            id="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10, transition: { duration: 0.2 } }}
+            className="fixed inset-0 z-40 overflow-y-auto bg-white/95 backdrop-blur-md md:hidden"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            <div
+              className="flex min-h-dvh flex-col px-6 pt-24 pb-12"
+              onClick={(e) => e.stopPropagation()}
             >
-              Falar com especialista
-            </Button>
-          </div>
-        </div>
-      </div>
+              <nav className="mt-4 flex flex-1 flex-col gap-2">
+                {NAV_LINKS.map((item, i) => (
+                  <motion.a
+                    key={item.label}
+                    href={item.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{
+                      delay: i * 0.05 + 0.1,
+                      duration: 0.3,
+                      ease: 'easeOut',
+                    }}
+                    className="font-display border-border/40 text-text-dark active:text-primary border-b py-4 text-2xl font-bold transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </motion.a>
+                ))}
+              </nav>
+
+              <div className="mt-auto pt-8">
+                <Button
+                  href={WHATSAPP_URL}
+                  className="shadow-primary w-full justify-center"
+                  size="md"
+                  icon
+                >
+                  Falar com especialista
+                </Button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

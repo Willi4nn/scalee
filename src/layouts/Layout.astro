@@ -3,7 +3,7 @@ import '../styles/global.css';
 ---
 
 <!doctype html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,5 +15,29 @@ import '../styles/global.css';
     class="font-body text-text bg-bg selection:bg-primary/20 selection:text-primary min-h-screen antialiased"
   >
     <slot />
+
+    <script>
+      import Lenis from 'lenis';
+
+      const lenis = new Lenis({
+        autoRaf: true,
+        lerp: 0.15,
+        wheelMultiplier: 1,
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', (e) => {
+          e.preventDefault();
+          const href = anchor.getAttribute('href');
+
+          if (href) {
+            const target = document.querySelector(href);
+            if (target) {
+              lenis.scrollTo(target as HTMLElement, { offset: -96 });
+            }
+          }
+        });
+      });
+    </script>
   </body>
 </html>
