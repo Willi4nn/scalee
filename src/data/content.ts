@@ -141,78 +141,78 @@ export const ABOUT: Feature[] = [
 export const SERVICES: Service[] = [
   {
     num: '01',
-    title: 'Atendimento Inteligente no WhatsApp',
-    desc: 'Triagem automática, respostas rápidas e agendamento 24h conectados ao seu funil de vendas sem parecer um robô engessado e sem perder clientes por demora.',
+    title: 'Agentes de IA para WhatsApp 24/7',
+    desc: 'Triagem de leads, envio de propostas e agendamentos automáticos. Elimine a perda de vendas fora do horário comercial e acabe com a lentidão no atendimento.',
     link: '#',
     modalDetails: {
-      pain: 'Sua equipe repete as mesmas respostas o dia inteiro e, fora do horário comercial ou nos picos de movimento, o cliente desiste e fecha com o concorrente que responde primeiro.',
+      pain: 'Sua equipe perde vendas porque demora a responder. Fora do horário comercial ou em picos de movimento, o cliente desiste e fecha com o concorrente que atende na hora.',
       solution:
-        'Um fluxo de atendimento automatizado e humanizado que tria contatos, tira dúvidas com respostas assistidas por IA (revisadas em 1 clique por um atendente) e organiza agendamentos e orçamentos direto em um painel, nada de plataforma de bot genérica.',
+        'Implementamos agentes inteligentes que qualificam contatos, tiram dúvidas operacionais e realizam agendamentos direto na sua agenda. Tudo integrado ao seu fluxo atual, sem parecer um robô genérico ou engessado.',
       features: [
-        'Atendimento e triagem 24 horas por dia, todos os dias',
-        'Respostas assistidas por IA, sem parecer um robô engessado',
-        'Transbordo inteligente para o atendente humano quando preciso',
-        'Captura e organização automática de leads em um painel próprio',
+        'Atendimento, triagem e agendamento 24 horas por dia',
+        'Respostas humanizadas e assistidas por Inteligência Artificial',
+        'Transbordo inteligente e silencioso para o atendente humano',
+        'Captura e organização automática de leads no seu funil de vendas',
       ],
       whatsappMessage:
-        'Olá! Vi no site sobre a Automação de WhatsApp e gostaria de saber como aplicar na minha empresa para não perder mais vendas.',
+        'Olá! Vi no site sobre a Automação para WhatsApp e quero entender como estancar a perda de vendas no meu atendimento.',
     },
   },
   {
     num: '02',
     title: 'Landing Pages de Alta Velocidade & Google Meu Negócio',
-    desc: 'Páginas ultrarrápidas em Astro que colocam seu negócio no topo das buscas locais e transformam visitante em cliente pelo WhatsApp.',
+    desc: 'Páginas de altíssima velocidade e otimização no Google Maps para fisgar imediatamente o cliente que pesquisa com intenção de compra.',
     link: '#',
     modalDetails: {
-      pain: 'Seu cliente pesquisa "[seu serviço] perto de mim" no Google e fecha com o concorrente, porque sua empresa ainda não tem uma presença digital rápida e profissional.',
+      pain: 'O cliente pesquisa pelo seu serviço no Google, mas fecha com o concorrente porque sua empresa é invisível ou tem um site lento e amador que espanta a venda.',
       solution:
-        'Construímos com Astro para um carregamento quase instantâneo sem o peso desnecessário de frameworks genéricos, otimizado para SEO local em Patos de Minas e região, e conectado ao seu Google Meu Negócio para dominar as buscas da cidade.',
+        'Construímos páginas ultrarrápidas focadas 100% em conversão e otimizamos sua ficha no Google Meu Negócio. Quem clica não espera carregar: é direcionado imediatamente para fechar negócio no seu WhatsApp.',
       features: [
-        'Carregamento em menos de 1 segundo, mesmo em conexão 4G',
-        'Otimização direta e completa do Google Meu Negócio',
-        'Design pensado 100% para converter visitante em conversa no WhatsApp',
-        'Sem mensalidades de plataformas engessadas tipo builders genéricos',
+        'Carregamento instantâneo (abaixo de 1 segundo no 4G)',
+        'Otimização completa do Google Meu Negócio para buscas locais',
+        'Arquitetura e design focados estritamente em gerar conversão',
+        'Blindagem contra a lentidão de criadores de sites genéricos',
       ],
       whatsappMessage:
-        'Olá! Gostaria de um diagnóstico gratuito sobre a presença digital da minha empresa e saber mais sobre a criação de Landing Pages.',
+        'Olá! Gostaria de um diagnóstico gratuito da minha presença digital e saber como dominar as buscas locais com uma Landing Page.',
     },
   },
   {
     num: '03',
     title: 'Automação de Processos e Integrações',
-    desc: 'Conectamos WhatsApp, planilhas, CRM e ERP para que conversem sozinhos, eliminando retrabalho manual e acelerando pedidos e orçamentos.',
+    desc: 'Conectamos WhatsApp, planilhas e sistemas internos para acabar com a redigitação manual. Faça o trabalho braçal da sua equipe rodar no piloto automático.',
     link: '#',
     modalDetails: {
-      pain: 'Informação duplicada, ordens de serviço perdidas e funcionários gastando horas redigitando os mesmos dados de um sistema para uma planilha.',
+      pain: 'Sua equipe gasta horas preciosas copiando dados de um sistema para o outro, preenchendo planilhas duplicadas e perdendo orçamentos ou ordens de serviço físicas.',
       solution:
-        'Conectamos as ferramentas que você já usa WhatsApp, CRM, ERP, Google Sheets, PDFs de notas e pedidos via APIs e webhooks, incluindo leitura automática de documentos por IA, para que tudo flua sozinho.',
+        'Conectamos as ferramentas que a sua operação já usa (WhatsApp, ERP, CRM, Google Sheets) via APIs. A informação trafega sozinha, sem erro humano, sem atrasos e sem papéis perdidos pela empresa.',
       features: [
-        'Fim das tarefas repetitivas de redigitação manual',
-        'Notificações automáticas para a equipe certa, na hora certa',
-        'Leitura e organização automática de PDFs, notas e pedidos por IA',
-        'Retorno sobre o investimento (ROI) perceptível em dias',
+        'Eliminação imediata da redigitação manual de cadastros e pedidos',
+        'Notificações e alertas automáticos para a equipe responsável',
+        'Leitura e extração de dados em PDFs e Notas Fiscais via IA',
+        'Redução drástica de custos operacionais e retrabalho',
       ],
       whatsappMessage:
-        'Olá! Minha operação tem muitos processos manuais. Como funciona o serviço de Automação de Processos e Integrações?',
+        'Olá! Minha operação perde muito tempo com trabalho manual. Como funciona a automação e integração de processos?',
     },
   },
   {
     num: '04',
-    title: 'Sistemas e Portais sob Medida',
-    desc: 'Controle de estoque, ordens de serviço e relatórios em um só lugar feito para a rotina real da sua empresa, não o contrário.',
+    title: 'ERPs e Sistemas Sob Medida',
+    desc: 'O fim do caos do papel e das planilhas. Painéis administrativos e operacionais exclusivos desenvolvidos para o gargalo exato do seu negócio.',
     link: '#',
     modalDetails: {
-      pain: 'Você já tentou softwares de prateleira, mas eles são complexos demais, cheios de função inútil e não se adaptam à forma como sua equipe realmente trabalha.',
+      pain: 'O software de prateleira é caro, engessado e cheio de funções inúteis. Na prática, a sua equipe continua usando cadernos e planilhas paralelas para conseguir trabalhar.',
       solution:
-        'Desenvolvemos portais, mini-ERPs e dashboards exatos para o seu gargalo específico. A tecnologia se adapta ao seu processo, e não o contrário e tudo passa por testes de ponta a ponta antes de ir para o ar.',
+        'Desenvolvemos portais operacionais e sistemas web focados apenas no que a sua empresa realmente precisa. A tecnologia se adapta à rotina da sua equipe, e não o contrário, blindada por testes rigorosos de qualidade.',
       features: [
-        'Áreas logadas seguras para clientes ou equipe',
-        'Controle exato de ordens de serviço, estoque e cadastros',
-        'Testes automatizados (QA) garantindo que nada quebre em produção',
-        'Dashboards visuais em tempo real para decisões rápidas',
+        'Painéis operacionais fechados e seguros para sua equipe ou clientes',
+        'Digitalização total do controle de ordens de serviço e estoque',
+        'Dashboards e relatórios visuais em tempo real para o gestor',
+        'Garantia de estabilidade com automação de testes (QA)',
       ],
       whatsappMessage:
-        'Olá! Gostaria de conversar sobre a criação de um sistema/portal sob medida para resolver um gargalo na minha empresa.',
+        'Olá! A desorganização interna virou um gargalo aqui. Quero conversar sobre um sistema sob medida para minha empresa.',
     },
   },
 ];
