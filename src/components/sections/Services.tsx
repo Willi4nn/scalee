@@ -1,9 +1,11 @@
 import {
   ArrowRight,
-  Database,
+  CalendarClock,
   MapPin,
   MessageCircle,
-  Workflow,
+  Shield,
+  User,
+  Zap,
 } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useState } from 'react';
@@ -13,10 +15,11 @@ import { SectionHeader } from '../ui/SectionHeader';
 import { ServiceModal } from '../ui/ServiceModal';
 
 const CARD_SPANS = [
-  'lg:col-span-7',
-  'lg:col-span-5',
-  'lg:col-span-5',
-  'lg:col-span-7',
+  'sm:col-span-2 lg:col-span-7',
+  'sm:col-span-2 lg:col-span-5',
+  'sm:col-span-2 lg:col-span-4',
+  'sm:col-span-1 lg:col-span-4',
+  'sm:col-span-1 lg:col-span-4',
 ];
 
 export function Services() {
@@ -84,7 +87,7 @@ export function Services() {
               <button
                 onClick={() => setActiveService(service)}
                 className="text-primary focus-visible:ring-primary relative mt-auto inline-flex w-fit items-center gap-2 overflow-hidden rounded-sm text-[0.9rem] font-bold outline-none before:absolute before:inset-0 before:-m-10 focus-visible:ring-2 focus-visible:ring-offset-2"
-                aria-label={`Conhecer solução: ${service.title}`}
+                aria-label={`Conhecer solução: ${service.title.replace('\n', ' ')}`}
               >
                 <span className="relative z-10">Conhecer solução</span>
                 <ArrowRight
@@ -135,6 +138,39 @@ function ServiceIllustration({ index }: { index: number }) {
 
     case 1:
       return (
+        <div className="relative flex h-full w-full items-center justify-center transition-transform duration-500 group-hover:scale-105">
+          <div className="absolute h-20 w-20 rounded-full bg-amber-400/20 blur-xl transition-colors group-hover:bg-amber-400/30" />
+          <div className="relative flex h-16 w-16 transform items-center justify-center rounded-2xl bg-linear-to-br from-amber-400 to-amber-500 text-white shadow-lg shadow-amber-500/20 transition-transform group-hover:rotate-12">
+            <CalendarClock strokeWidth={2.5} className="h-8 w-8" />
+          </div>
+          <div className="absolute top-1/2 left-1/2 -mt-12 -ml-12 h-24 w-24 animate-[spin_6s_linear_infinite] rounded-full border-[3px] border-dashed border-amber-400/30" />
+        </div>
+      );
+
+    case 2:
+      return (
+        <div className="relative flex h-full w-full items-center justify-center gap-2 transition-transform duration-500 group-hover:scale-105">
+          <div className="flex translate-x-3 flex-col gap-2">
+            <div className="border-border relative z-10 flex h-9 w-9 items-center justify-center rounded-lg border bg-white text-indigo-500 shadow-sm">
+              <User strokeWidth={2.5} className="h-4 w-4" />
+            </div>
+            <div className="border-border relative z-10 flex h-9 w-9 items-center justify-center rounded-lg border bg-white text-indigo-500 shadow-sm">
+              <User strokeWidth={2.5} className="h-4 w-4" />
+            </div>
+          </div>
+
+          <div className="bg-border relative z-0 h-12 w-[2px]">
+            <div className="absolute top-1/2 left-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-indigo-500 shadow-[0_0_8px_rgba(99,102,241,0.8)]" />
+          </div>
+
+          <div className="relative z-10 flex h-16 w-16 -translate-x-3 transform items-center justify-center rounded-2xl bg-linear-to-br from-indigo-500 to-indigo-700 text-white shadow-lg shadow-indigo-500/30 transition-transform group-hover:scale-110">
+            <Shield strokeWidth={2.5} className="h-7 w-7" />
+          </div>
+        </div>
+      );
+
+    case 3:
+      return (
         <div className="relative flex h-full w-full items-center justify-center px-6 transition-transform duration-500 group-hover:scale-105">
           <div className="relative flex h-24 w-full flex-col overflow-hidden rounded-t-xl border-x border-t border-slate-800 bg-slate-900 shadow-2xl">
             <div className="flex h-5 shrink-0 items-center gap-1.5 border-b border-slate-700/50 bg-slate-800/50 px-2.5">
@@ -142,43 +178,21 @@ function ServiceIllustration({ index }: { index: number }) {
               <div className="h-1.5 w-1.5 rounded-full bg-amber-400/80" />
               <div className="h-1.5 w-1.5 rounded-full bg-emerald-400/80" />
             </div>
-            <div className="relative flex-1">
-              <div className="from-primary to-secondary absolute -top-5 left-1/2 h-20 w-20 -translate-x-1/2 rounded-full bg-linear-to-br opacity-60 blur-[20px] transition-opacity group-hover:opacity-100" />
-              <div className="mx-auto mt-4 h-2 w-1/2 rounded-full bg-slate-800" />
-              <div className="mx-auto mt-2 h-1.5 w-3/4 rounded-full bg-slate-800/50" />
+            <div className="relative flex flex-1 items-center justify-center">
+              <div className="absolute top-1/2 left-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full bg-rose-500/20 opacity-0 blur-xl transition-opacity group-hover:opacity-100" />
+              <Zap
+                className="h-10 w-10 animate-pulse text-rose-500/80 transition-colors group-hover:text-rose-400"
+                strokeWidth={1.5}
+              />
             </div>
           </div>
           <div className="border-border absolute right-3 bottom-3 z-20 flex h-8 w-8 items-center justify-center rounded-full border bg-white shadow-md">
-            <MapPin className="h-4 w-4 text-red-500" strokeWidth={2.5} />
+            <MapPin className="h-4 w-4 text-rose-500" strokeWidth={2.5} />
           </div>
         </div>
       );
 
-    case 2:
-      return (
-        <div className="relative flex h-full w-full items-center justify-center transition-transform duration-500 group-hover:scale-105">
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.1)_1px,transparent_1px)] bg-size-[12px_12px] opacity-30" />
-          <div className="relative z-10 flex items-center">
-            <div className="border-border flex h-10 w-10 transform items-center justify-center rounded-xl border bg-white text-emerald-500 shadow-sm transition-transform group-hover:-translate-y-1">
-              <MessageCircle className="h-4 w-4" />
-            </div>
-            <div className="bg-border relative mx-0.5 h-0.5 w-7 overflow-visible">
-              <span className="bg-primary absolute top-1/2 left-0 h-2 w-2 -translate-y-1/2 rounded-full transition-transform duration-1000 group-hover:translate-x-5" />
-            </div>
-            <div className="border-border text-primary flex h-10 w-10 items-center justify-center rounded-xl border bg-white shadow-sm">
-              <Workflow className="h-4 w-4" />
-            </div>
-            <div className="bg-border relative mx-0.5 h-0.5 w-7 overflow-visible">
-              <span className="bg-secondary absolute top-1/2 left-0 h-2 w-2 -translate-y-1/2 rounded-full transition-transform delay-300 duration-1000 group-hover:translate-x-5" />
-            </div>
-            <div className="border-border text-secondary flex h-10 w-10 transform items-center justify-center rounded-xl border bg-white shadow-sm transition-transform group-hover:translate-y-1">
-              <Database className="h-4 w-4" />
-            </div>
-          </div>
-        </div>
-      );
-
-    case 3:
+    case 4:
       return (
         <div className="relative flex h-full w-full items-end justify-center px-6 pt-8 transition-transform duration-500 group-hover:scale-105">
           <div className="border-border flex h-full w-full overflow-hidden rounded-t-xl border-x border-t bg-white shadow-md">
