@@ -23,9 +23,8 @@ export function Process() {
         </motion.div>
 
         <div className="relative">
-          {/* Linha de fundo (Desktop) */}
           <div className="bg-border/50 absolute top-2.75 right-3 left-3 z-0 hidden h-px md:block" />
-          {/* Linha animada de progresso (Desktop) - Agora com Gradiente */}
+
           <motion.div
             className="bg-gradient-brand absolute top-2.75 right-3 left-3 z-0 hidden h-px origin-left md:block"
             initial={{ scaleX: 0 }}
@@ -34,9 +33,8 @@ export function Process() {
             transition={{ duration: 1.5, ease: 'easeInOut', delay: 0.1 }}
           />
 
-          {/* Linha de fundo (Mobile) */}
           <div className="bg-border/50 absolute top-3 bottom-3 left-2.75 z-0 w-px md:hidden" />
-          {/* Linha animada de progresso (Mobile) - Agora com Gradiente */}
+
           <motion.div
             className="bg-gradient-brand absolute top-3 bottom-3 left-2.75 z-0 w-px origin-top md:hidden"
             initial={{ scaleY: 0 }}

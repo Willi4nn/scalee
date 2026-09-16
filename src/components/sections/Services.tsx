@@ -4,6 +4,7 @@ import {
   MapPin,
   MessageCircle,
   Shield,
+  Sparkles,
   User,
   Zap,
 } from 'lucide-react';
@@ -48,8 +49,18 @@ export function Services() {
           {SERVICES.map((service, index) => (
             <motion.article
               key={service.num}
+              role="button"
+              tabIndex={0}
+              onClick={() => setActiveService(service)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setActiveService(service);
+                }
+              }}
+              aria-label={`Conhecer solução: ${service.title.replace('\n', ' ')}`}
               className={cn(
-                'border-border/60 hover:border-border-strong group relative flex flex-col rounded-2xl border bg-white p-7 hover:shadow-lg sm:p-8',
+                'border-border/60 hover:border-border-strong focus-visible:ring-primary group relative flex cursor-pointer flex-col rounded-2xl border bg-white p-7 outline-none hover:shadow-lg focus-visible:ring-2 focus-visible:ring-offset-2 sm:p-8',
                 CARD_SPANS[index]
               )}
               initial={{ opacity: 0, y: 24 }}
@@ -63,7 +74,8 @@ export function Services() {
               }}
             >
               {index === 0 && (
-                <span className="absolute top-6 right-6 z-20 px-2.5 py-1 font-mono text-[0.6rem] font-bold tracking-wide text-emerald-600 uppercase sm:top-7 sm:right-7">
+                <span className="bg-primary/10 text-primary absolute top-6 right-6 z-20 flex items-center gap-1 rounded-full px-2.5 py-1 text-[0.65rem] font-bold sm:top-7 sm:right-7">
+                  <Sparkles className="h-3 w-3" strokeWidth={2.5} />
                   Mais procurado
                 </span>
               )}
@@ -84,21 +96,35 @@ export function Services() {
                 {service.desc}
               </p>
 
-              <button
-                onClick={() => setActiveService(service)}
-                className="text-secondary focus-visible:ring-secondary relative mt-auto inline-flex w-fit items-center gap-2 overflow-hidden rounded-sm text-[0.9rem] font-bold outline-none before:absolute before:inset-0 before:-m-10 focus-visible:ring-2 focus-visible:ring-offset-2"
-                aria-label={`Conhecer solução: ${service.title.replace('\n', ' ')}`}
-              >
-                <span className="relative z-10">Conhecer solução</span>
+              <span className="text-secondary relative mt-auto inline-flex w-fit items-center gap-2 text-[0.9rem] font-bold">
+                Conhecer solução
                 <ArrowRight
                   className="h-4 w-4 transform transition-all duration-300 group-hover:translate-x-1"
                   strokeWidth={2.5}
                 />
                 <span className="bg-secondary/20 absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
-              </button>
+              </span>
             </motion.article>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          className="border-border/60 mt-12 flex flex-col items-center justify-between gap-4 rounded-2xl border bg-white p-6 sm:flex-row sm:p-8"
+        >
+          <p className="text-text-dark text-left text-base font-bold sm:text-lg">
+            Não sabe qual solução é a ideal pra sua operação?
+          </p>
+          <a
+            href="#contato"
+            className="bg-primary hover:bg-primary/90 inline-flex shrink-0 items-center gap-2 rounded-full px-6 py-3 text-sm font-bold text-white shadow-sm transition-colors"
+          >
+            Falar com um especialista
+            <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+          </a>
+        </motion.div>
       </div>
 
       <ServiceModal
