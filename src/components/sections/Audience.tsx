@@ -63,7 +63,7 @@ export function Audience() {
           viewport={{ once: true, margin: '-50px' }}
           className="mx-auto flex max-w-175 flex-col items-center text-center"
         >
-          <SectionHeader eyebrow="Para quem é" eyebrowColor="primary">
+          <SectionHeader eyebrow="Para quem é" eyebrowColor="secondary">
             Se existe um processo repetitivo, existe uma oportunidade de
             automatizar.
           </SectionHeader>

@@ -1,22 +1,33 @@
 ---
 import {
-  Instagram,
-  Linkedin,
-  Mail,
-  MapPin,
-  MessageCircle,
-  Phone,
+Instagram,
+Linkedin,
+Mail,
+MapPin,
+MessageCircle,
+Phone,
 } from 'lucide-astro';
-import { CONTACT_INFO, FOOTER_LINKS, SOCIAL_LINKS } from '../../data/content';
+import {
+CONTACT_INFO,
+FOOTER_LINKS,
+SERVICES,
+SOCIAL_LINKS,
+} from '../../data/content';
 
-const SocialIcons: Record<string, any> = {
+const SocialIcons: Record<string, typeof Instagram> = {
   Instagram,
   Linkedin,
   MessageCircle,
 };
 
 const linkSections = [
-  { title: 'Soluções', links: FOOTER_LINKS.solucoes },
+  {
+    title: 'Soluções',
+    links: SERVICES.map((service) => ({
+      label: service.title.replace('\n', ' '),
+      href: '#solucoes',
+    })),
+  },
   { title: 'Empresa', links: FOOTER_LINKS.empresa },
 ];
 ---
@@ -53,7 +64,7 @@ const linkSections = [
                   class="focus-visible:ring-primary rounded-full bg-white/5 p-2.5 text-slate-400 transition-all outline-none hover:bg-white/10 hover:text-white focus-visible:ring-2 active:scale-95"
                   aria-label={`Acessar ${social.platform}`}
                 >
-                  <Icon class="h-5 w-5" stroke-width="1.5" />
+                  {Icon && <Icon class="h-5 w-5" stroke-width="1.5" />}
                 </a>
               );
             })

@@ -3,8 +3,8 @@
 
 @theme {
   /* --- Cores Base --- */
-  --color-primary: #ff007f;
-  --color-primary-hover: #e0006f;
+  --color-primary: #7c3aed;
+  --color-primary-hover: #6d28d9;
   --color-secondary: #3eacf9;
 
   --color-bg: #ffffff;
@@ -16,6 +16,10 @@
 
   --color-border: #e2e8f0;
   --color-border-strong: #cbd5e1;
+
+  --color-whatsapp-bg: #efeae2;
+  --color-whatsapp-out: #e7f6dd;
+  --color-whatsapp-border: #d1e6c5;
 
   /* --- Tipografia --- */
   --font-display: 'Space Grotesk', sans-serif;
@@ -140,6 +144,10 @@
 
   body {
     line-height: 1.6;
+  }
+
+  button {
+    @apply cursor-pointer;
   }
 
   h1,

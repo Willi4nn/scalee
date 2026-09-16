@@ -89,6 +89,7 @@ export interface Service {
 export const NAV_LINKS: NavLink[] = [
   { label: 'Sobre', href: '#sobre' },
   { label: 'Soluções', href: '#solucoes' },
+  { label: 'Simulador', href: '#simulador' },
   { label: 'Processo', href: '#processo' },
   { label: 'Tecnologia', href: '#tecnologia' },
   { label: 'Projetos', href: '#projects' },
@@ -431,6 +432,7 @@ export const FOOTER_LINKS: FooterLinks = {
   ],
   empresa: [
     { label: 'Sobre', href: '#sobre' },
+    { label: 'Simulador', href: '#simulador' },
     { label: 'Processo', href: '#processo' },
     { label: 'Tecnologia', href: '#tecnologia' },
     { label: 'Projetos', href: '#projects' },

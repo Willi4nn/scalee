@@ -36,7 +36,7 @@ export function Differentiators() {
         >
           <SectionHeader
             eyebrow="Nosso diferencial"
-            eyebrowColor="primary"
+            eyebrowColor="secondary"
             description="Em vez de adaptar sua operação a ferramentas genéricas, entendemos seus processos, identificamos os gargalos e construímos soluções sob medida para gerar eficiência de verdade."
             theme="dark"
           >

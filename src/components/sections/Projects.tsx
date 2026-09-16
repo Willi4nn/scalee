@@ -13,7 +13,7 @@ export function Projects() {
       <div className="container mx-auto px-6 md:px-8">
         <SectionHeader
           eyebrow="Cases de Sucesso"
-          eyebrowColor="primary"
+          eyebrowColor="secondary"
           description="Sistemas, plataformas e automações desenvolvidos com arquitetura moderna para resolver problemas reais."
         >
           Projetos que entregam resultado.
@@ -54,7 +54,7 @@ export function Projects() {
 
                 <div className="flex w-full flex-col items-start lg:w-[45%] lg:py-6">
                   <div className="mb-4 flex items-center gap-3">
-                    <span className="text-primary font-mono text-[0.75rem] font-bold tracking-widest uppercase">
+                    <span className="text-secondary font-mono text-[0.75rem] font-bold tracking-widest uppercase">
                       {item.tag || 'Case de Sucesso'}
                     </span>
                     <span className="rounded-md bg-slate-100 px-2 py-0.5 font-mono text-[0.7rem] font-bold text-slate-500">
@@ -87,14 +87,14 @@ export function Projects() {
                         href={item.projectUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-primary group/link focus-visible:ring-primary relative inline-flex items-center gap-2 overflow-hidden rounded-sm text-[0.95rem] font-bold outline-none focus-visible:ring-2"
+                        className="text-secondary group/link focus-visible:ring-secondary relative inline-flex items-center gap-2 overflow-hidden rounded-sm text-[0.95rem] font-bold outline-none focus-visible:ring-2"
                       >
                         <span className="relative z-10">Acessar projeto</span>
                         <ArrowUpRight
                           className="h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
                           strokeWidth={2.5}
                         />
-                        <span className="bg-primary/20 absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 transition-transform duration-300 group-hover/link:scale-x-100" />
+                        <span className="bg-secondary/20 absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 transition-transform duration-300 group-hover/link:scale-x-100" />
                       </a>
                     )}
                   </div>

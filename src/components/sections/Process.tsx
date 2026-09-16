@@ -17,24 +17,28 @@ export function Process() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
         >
-          <SectionHeader eyebrow="O processo" eyebrowColor="primary">
+          <SectionHeader eyebrow="O processo" eyebrowColor="secondary">
             Do problema à solução em 4 etapas claras.
           </SectionHeader>
         </motion.div>
 
         <div className="relative">
+          {/* Linha de fundo (Desktop) */}
           <div className="bg-border/50 absolute top-2.75 right-3 left-3 z-0 hidden h-px md:block" />
+          {/* Linha animada de progresso (Desktop) - Agora com Gradiente */}
           <motion.div
-            className="bg-text-dark absolute top-2.75 right-3 left-3 z-0 hidden h-px origin-left md:block"
+            className="bg-gradient-brand absolute top-2.75 right-3 left-3 z-0 hidden h-px origin-left md:block"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 1.5, ease: 'easeInOut', delay: 0.1 }}
           />
 
+          {/* Linha de fundo (Mobile) */}
           <div className="bg-border/50 absolute top-3 bottom-3 left-2.75 z-0 w-px md:hidden" />
+          {/* Linha animada de progresso (Mobile) - Agora com Gradiente */}
           <motion.div
-            className="bg-text-dark absolute top-3 bottom-3 left-2.75 z-0 w-px origin-top md:hidden"
+            className="bg-gradient-brand absolute top-3 bottom-3 left-2.75 z-0 w-px origin-top md:hidden"
             initial={{ scaleY: 0 }}
             whileInView={{ scaleY: 1 }}
             viewport={{ once: true, margin: '-100px' }}
@@ -57,14 +61,14 @@ export function Process() {
                   transition={{ delay: 0.2 + i * 0.2 }}
                 >
                   <div className="relative mr-6 shrink-0 bg-white py-1 md:mr-0 md:mb-8 md:px-1 md:py-0">
-                    <div className="border-border group-hover:border-text-dark flex h-6 w-6 items-center justify-center rounded-full border transition-colors duration-500">
-                      <div className="bg-border-strong group-hover:bg-text-dark h-1.5 w-1.5 rounded-full transition-colors duration-500" />
+                    <div className="border-border group-hover:border-primary group-hover:shadow-primary/30 flex h-6 w-6 items-center justify-center rounded-full border shadow-sm transition-colors duration-500">
+                      <div className="bg-border-strong group-hover:bg-primary h-1.5 w-1.5 rounded-full transition-colors duration-500" />
                     </div>
                   </div>
 
                   <div className="flex-1 pt-1 md:pt-0">
                     <div className="mb-3 flex items-center gap-3">
-                      <span className="text-text-faint font-mono text-[0.7rem] font-medium">
+                      <span className="text-primary font-mono text-[0.8rem] font-bold tracking-wider">
                         {step.num}
                       </span>
                       <IconComponent

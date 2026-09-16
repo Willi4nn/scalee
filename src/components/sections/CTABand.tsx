@@ -16,7 +16,7 @@ export function CTABand() {
 
           <div className="pointer-events-none absolute inset-0 z-0 opacity-50 mix-blend-screen">
             <DarkVeil
-              hueShift={281}
+              hueShift={320}
               speed={0.6}
               scanlineFrequency={1.2}
               resolutionScale={1}

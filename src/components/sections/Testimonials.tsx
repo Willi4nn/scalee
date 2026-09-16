@@ -29,7 +29,7 @@ export function Testimonials() {
       <div className="container mx-auto px-4 md:px-8">
         <SectionHeader
           eyebrow="Depoimentos"
-          eyebrowColor="primary"
+          eyebrowColor="secondary"
           align="center"
         >
           Quem trabalha com a Scalee sente a diferença.

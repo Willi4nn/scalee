@@ -25,13 +25,13 @@ export function Navbar() {
       >
         <div
           className={cn(
-            'container flex items-center justify-between transition-all duration-300',
+            'container flex items-center justify-between gap-4 transition-all duration-300 lg:gap-8',
             scrolled ? 'h-16' : 'h-20 lg:h-24'
           )}
         >
           <a
             href="#top"
-            className="font-display text-text-dark group focus-visible:ring-primary relative z-50 flex items-center gap-2 rounded-md text-2xl font-bold tracking-tight outline-none focus-visible:ring-2"
+            className="font-display text-text-dark group focus-visible:ring-primary relative z-50 flex shrink-0 items-center gap-2 rounded-md text-2xl font-bold tracking-tight outline-none focus-visible:ring-2"
             aria-label="Voltar para o topo"
           >
             <img
@@ -42,12 +42,12 @@ export function Navbar() {
             Scalee
           </a>
 
-          <nav className="hidden items-center gap-8 md:flex">
+          <nav className="hidden flex-1 items-center justify-center gap-4 lg:flex lg:gap-6 xl:gap-8">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="text-text-muted hover:text-primary-hover focus-visible:text-primary group relative py-2 text-[0.95rem] font-medium transition-colors duration-300 outline-none"
+                className="text-text-muted hover:text-primary-hover focus-visible:text-primary group relative py-2 text-[0.95rem] font-medium whitespace-nowrap transition-colors duration-300 outline-none"
               >
                 {link.label}
                 <span className="bg-primary-hover absolute bottom-1 left-0 h-0.5 w-full origin-left scale-x-0 rounded-full transition-transform duration-300 ease-out group-hover:scale-x-100" />
@@ -55,15 +55,15 @@ export function Navbar() {
             ))}
           </nav>
 
-          <div className="relative z-50 flex items-center gap-2 md:gap-4">
-            <div className="hidden md:block">
+          <div className="relative z-50 flex shrink-0 items-center justify-end gap-2 md:gap-4">
+            <div className="hidden lg:block">
               <Button href={WHATSAPP_URL} size="sm" icon>
                 Falar com especialista
               </Button>
             </div>
 
             <button
-              className="text-text-dark focus-visible:ring-primary -mr-2 flex items-center justify-center rounded-xl p-2.5 transition-colors outline-none hover:bg-slate-100 focus-visible:ring-2 active:scale-95 md:hidden"
+              className="text-text-dark focus-visible:ring-primary -mr-2 flex items-center justify-center rounded-xl p-2.5 transition-colors outline-none hover:bg-slate-100 focus-visible:ring-2 active:scale-95 lg:hidden"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
               aria-expanded={mobileMenuOpen}
@@ -88,7 +88,7 @@ export function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10, transition: { duration: 0.2 } }}
-            className="fixed inset-0 z-40 overflow-y-auto bg-white/95 backdrop-blur-md md:hidden"
+            className="fixed inset-0 z-40 overflow-y-auto bg-white/95 backdrop-blur-md lg:hidden"
             onClick={() => setMobileMenuOpen(false)}
           >
             <div

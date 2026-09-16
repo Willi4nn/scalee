@@ -38,7 +38,7 @@ export function Services() {
       <div className="relative z-10 container">
         <SectionHeader
           eyebrow="Soluções"
-          eyebrowColor="primary"
+          eyebrowColor="secondary"
           description="Da automação no WhatsApp aos sistemas internos, cada solução é construída para eliminar gargalos e acelerar sua operação."
         >
           Tudo o que sua empresa precisa para operar melhor.
@@ -86,7 +86,7 @@ export function Services() {
 
               <button
                 onClick={() => setActiveService(service)}
-                className="text-primary focus-visible:ring-primary relative mt-auto inline-flex w-fit items-center gap-2 overflow-hidden rounded-sm text-[0.9rem] font-bold outline-none before:absolute before:inset-0 before:-m-10 focus-visible:ring-2 focus-visible:ring-offset-2"
+                className="text-secondary focus-visible:ring-secondary relative mt-auto inline-flex w-fit items-center gap-2 overflow-hidden rounded-sm text-[0.9rem] font-bold outline-none before:absolute before:inset-0 before:-m-10 focus-visible:ring-2 focus-visible:ring-offset-2"
                 aria-label={`Conhecer solução: ${service.title.replace('\n', ' ')}`}
               >
                 <span className="relative z-10">Conhecer solução</span>
@@ -94,7 +94,7 @@ export function Services() {
                   className="h-4 w-4 transform transition-all duration-300 group-hover:translate-x-1"
                   strokeWidth={2.5}
                 />
-                <span className="bg-primary/20 absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
+                <span className="bg-secondary/20 absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
               </button>
             </motion.article>
           ))}
@@ -159,7 +159,7 @@ function ServiceIllustration({ index }: { index: number }) {
             </div>
           </div>
 
-          <div className="bg-border relative z-0 h-12 w-[2px]">
+          <div className="bg-border relative z-0 h-12 w-0.5">
             <div className="absolute top-1/2 left-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-indigo-500 shadow-[0_0_8px_rgba(99,102,241,0.8)]" />
           </div>
 

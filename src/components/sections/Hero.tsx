@@ -32,7 +32,7 @@ export function Hero() {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="mx-auto flex w-full max-w-4xl flex-col items-center text-center"
         >
-          <p className="text-primary mb-6 font-mono text-xs font-bold tracking-widest uppercase md:text-sm">
+          <p className="text-secondary mb-6 font-mono text-xs font-bold tracking-widest uppercase md:text-sm">
             Software • Sites • Automações com IA
           </p>
 
