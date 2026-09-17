@@ -35,8 +35,8 @@ export function FeatureCard({
       )}
 
       <div
-        className={`group-hover:bg-primary relative z-10 mb-6 flex h-14 w-14 items-center justify-center rounded-(--radius-md) transition-colors group-hover:text-white ${
-          isDark ? 'text-primary bg-white/10' : 'bg-bg-alt text-primary'
+        className={`group-hover:bg-primary border-primary relative z-10 mb-6 flex h-14 w-14 items-center justify-center rounded-(--radius-md) border-2 transition-colors group-hover:text-white ${
+          isDark ? 'text-primary' : 'bg-bg-alt text-primary border-primary'
         }`}
       >
         <Icon className="h-7 w-7" strokeWidth={2} aria-hidden="true" />

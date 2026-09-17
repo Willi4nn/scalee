@@ -61,7 +61,7 @@ export function Testimonials() {
           {TESTIMONIALS.map((test, i) => (
             <motion.div
               key={test.name}
-              className="border-border/80 flex w-[85vw] shrink-0 snap-start flex-col rounded-2xl border bg-white p-6 shadow-sm transition-shadow hover:shadow-md sm:w-105 sm:snap-center md:p-8 lg:w-112.5"
+              className="border-border/80 flex w-[75vw] shrink-0 snap-start flex-col rounded-2xl border bg-white p-6 shadow-sm transition-shadow hover:shadow-md sm:w-105 sm:snap-center md:p-8 lg:w-112.5"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
