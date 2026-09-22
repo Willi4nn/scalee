@@ -1,5 +1,6 @@
 import {
   ArrowRight,
+  BadgeCheck,
   Bot,
   CalendarCheck,
   Check,
@@ -7,6 +8,7 @@ import {
   ChevronLeft,
   DollarSign,
   MessageCircle,
+  Mic,
   Play,
   Plus,
   Send,
@@ -23,62 +25,79 @@ type Message = {
   type: 'bot' | 'user' | 'cta';
   text: string;
   time: string;
+  buttons?: string[];
 };
 
-const SCENARIOS = {
+type ScenarioMessage = {
+  type: 'bot' | 'user';
+  text: string;
+  buttons?: string[];
+};
+
+const SCENARIOS: Record<1 | 2 | 3, ScenarioMessage[]> = {
   1: [
     {
       type: 'user',
-      text: 'Oi, queria saber os planos e os horários de atendimento.',
+      text: 'Oi! Queria saber como funciona e quais são os horários de atendimento.',
     },
-    { type: 'bot', text: 'Olá! Sou a assistente virtual da Scalee. 👋' },
     {
       type: 'bot',
-      text: 'Atendemos de Seg a Sex, das 9h às 18h. Para eu te passar o plano correto, *qual o seu nome e ramo de atuação?*',
+      text: 'Olá! 👋 Sou o assistente virtual da empresa.',
     },
-    { type: 'user', text: 'João, tenho uma clínica odontológica.' },
     {
       type: 'bot',
-      text: 'Perfeito, João! Já direcionei seus dados para um especialista em clínicas. Ele vai te chamar por aqui em instantes. ✅',
+      text: 'Posso te ajudar com informações, horários e outras dúvidas. Para entender melhor o que você precisa, qual seu nome e qual serviço você procura?',
+    },
+    {
+      type: 'user',
+      text: 'João. Estou procurando atendimento para minha clínica.',
+    },
+    {
+      type: 'bot',
+      text: 'Perfeito, João! Vou registrar essas informações e encaminhar seu atendimento para a equipe responsável. ✅',
     },
   ],
+
   2: [
-    { type: 'bot', text: 'Olá, Maria! Aqui é a assistente da Clínica. 🏥' },
     {
       type: 'bot',
-      text: 'Sua consulta de amanhã às 14h está confirmada? Digite *1* para Confirmar ou *2* para Reagendar.',
+      text: 'Olá, Maria! 👋 Aqui é o atendimento da Clínica.',
     },
-    { type: 'user', text: '1' },
     {
       type: 'bot',
-      text: 'Horário confirmado com sucesso no nosso sistema! Te esperamos amanhã. ✅',
+      text: 'Sua consulta de amanhã, às 14h, está confirmada?',
+      buttons: ['Sim, confirmar', 'Quero reagendar'],
     },
   ],
+
   3: [
     {
       type: 'bot',
-      text: 'Oi, Carlos! Tudo bem? Vi que você pediu um orçamento na semana passada e acabamos não fechando. 📊',
+      text: 'Oi, Carlos! Tudo bem? 👋 Você pediu um orçamento recentemente e estamos entrando em contato para saber se ainda tem interesse.',
     },
     {
       type: 'bot',
-      text: 'O gerente liberou uma condição de *Isenção de Setup* para você hoje. Faz sentido retomarmos?',
+      text: 'Posso te ajudar a retomar esse atendimento?',
     },
-    { type: 'user', text: 'Opa, com isenção faz sim. Me manda o link.' },
+    {
+      type: 'user',
+      text: 'Sim, quero continuar.',
+    },
     {
       type: 'bot',
-      text: 'Maravilha! 🎉 Estou gerando o link do contrato agora mesmo.',
+      text: 'Perfeito! Vou encaminhar seu atendimento para a equipe continuar com você. ✅',
     },
   ],
-} as const;
+};
 
-const SCENARIO_CTA: Record<1 | 2 | 3, string> = {
-  1: 'Isso pode ser a recepção do seu negócio, 24h por dia. Quer ver como funciona com o seu caso?',
-  2: 'Menos faltas, menos retrabalho manual. Vamos configurar essa régua pra você?',
-  3: 'Esse orçamento "esquecido" virou venda de novo. Quantos você tem parados hoje?',
+export const SCENARIO_CTA: Record<1 | 2 | 3, string> = {
+  1: 'Esse tipo de atendimento pode cuidar da primeira conversa com seus clientes. Quer entender como funcionaria no seu negócio?',
+  2: 'Lembretes automáticos ajudam sua equipe a não precisar lembrar de tudo manualmente. Quer ver como isso funcionaria na sua empresa?',
+  3: 'Um simples acompanhamento pode evitar que um orçamento fique esquecido. Quer conversar sobre o seu processo comercial?',
 };
 
 const FREE_TYPE_CTA =
-  'Na vida real, minha IA consulta o banco de dados da sua empresa e responde assim, sozinha, 24h por dia. Bora colocar isso pra rodar no seu negócio?';
+  'No seu negócio, a IA pode ser configurada para responder de acordo com as informações e processos da sua empresa. Quer entender como funcionaria na prática?';
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 const getCurrentTimeStr = () =>
@@ -95,19 +114,20 @@ export function Simulator() {
   );
   const [isTyping, setIsTyping] = useState(false);
   const [isSimulating, setIsSimulating] = useState(false);
+  const [waitingForChoice, setWaitingForChoice] = useState(false);
   const [inputValue, setInputValue] = useState('');
 
   const [messages, setMessages] = useState<Message[]>(() => [
     {
       id: 'initial-1',
       type: 'bot',
-      text: 'Olá! 👋 Sou a inteligência artificial da Scalee.',
+      text: 'Olá! 👋 Sou o assistente virtual da Scalee.',
       time: getCurrentTimeStr(),
     },
     {
       id: 'initial-2',
       type: 'bot',
-      text: 'Escolha um dos *cenários ao lado* para ver como eu atendo os seus clientes na prática.',
+      text: 'Escolha um exemplo abaixo para ver como um atendimento automático pode funcionar.',
       time: getCurrentTimeStr(),
     },
   ]);
@@ -119,10 +139,14 @@ export function Simulator() {
   }, []);
 
   const chatRef = useRef<HTMLDivElement>(null);
+  const phoneContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (chatRef.current) {
-      chatRef.current.scrollTop = chatRef.current.scrollHeight;
+      chatRef.current.scrollTo({
+        top: chatRef.current.scrollHeight,
+        behavior: 'smooth',
+      });
     }
   }, [messages, isTyping]);
 
@@ -136,8 +160,16 @@ export function Simulator() {
   const triggerScenario = async (id: 1 | 2 | 3) => {
     if (isSimulating) return;
 
+    if (window.innerWidth < 1024 && phoneContainerRef.current) {
+      phoneContainerRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      });
+    }
+
     setIsSimulating(true);
     setActiveScenario(id);
+    setWaitingForChoice(false);
     setMessages([]);
 
     const sequence = SCENARIOS[id];
@@ -152,7 +184,18 @@ export function Simulator() {
         await sleep(600);
       }
 
-      pushMessage({ type: msg.type as 'bot' | 'user', text: msg.text });
+      pushMessage({
+        type: msg.type,
+        text: msg.text,
+        buttons: msg.buttons,
+      });
+
+      if (id === 2 && msg.buttons) {
+        setWaitingForChoice(true);
+        setIsSimulating(false);
+        return;
+      }
+
       await sleep(400);
     }
 
@@ -163,9 +206,34 @@ export function Simulator() {
     setIsSimulating(false);
   };
 
+  const handleChoiceClick = async (choiceText: string) => {
+    if (!waitingForChoice || isSimulating) return;
+    setWaitingForChoice(false);
+    setIsSimulating(true);
+
+    pushMessage({ type: 'user', text: choiceText });
+    await sleep(600);
+
+    setIsTyping(true);
+    await sleep(1200);
+    setIsTyping(false);
+
+    const botReply = choiceText.includes('reagendar')
+      ? 'Sem problemas! Para reagendar, entre em contato com nossa equipe. ✅'
+      : 'Pronto! Seu horário foi confirmado com sucesso. Te esperamos amanhã. ✅';
+
+    pushMessage({ type: 'bot', text: botReply });
+    await sleep(500);
+    pushMessage({ type: 'cta', text: SCENARIO_CTA[2] });
+
+    setCompletedScenarios((prev) => new Set(prev).add(2));
+    setIsSimulating(false);
+    setActiveScenario(null);
+  };
+
   const handleFreeTyping = async () => {
     const text = inputValue.trim();
-    if (!text || isSimulating) return;
+    if (!text || isSimulating || waitingForChoice) return;
 
     setInputValue('');
     pushMessage({ type: 'user', text });
@@ -176,10 +244,15 @@ export function Simulator() {
     await sleep(1500);
     setIsTyping(false);
 
-    const primeiraPalavra = text.split(' ')[0].replace(/[^a-zA-Z0-9À-ÿ]/g, '');
+    const palavras = text.trim().split(/\s+/);
+    const termo =
+      palavras.length > 2
+        ? 'sua dúvida'
+        : text.replace(/[^a-zA-Z0-9À-ÿ\s]/g, '').trim() || 'isso';
+
     pushMessage({
       type: 'bot',
-      text: `Entendi sua mensagem sobre *${primeiraPalavra || 'isso'}* — e em produção eu já teria resolvido sozinha. 🤖`,
+      text: `Entendi sua mensagem sobre *${termo}*! Em um ambiente real, eu já estaria conectada ao seu sistema para resolver isso instantaneamente. 🤖`,
     });
 
     await sleep(600);
@@ -206,20 +279,20 @@ export function Simulator() {
     {
       id: 1,
       icon: MessageCircle,
-      title: '1. Atendimento Automático',
-      desc: 'A IA tira dúvidas e qualifica o lead.',
+      title: 'Atendimento automático',
+      desc: 'A IA responde dúvidas e faz o primeiro atendimento.',
     },
     {
       id: 2,
       icon: CalendarCheck,
-      title: '2. Régua Anti-Falta',
-      desc: 'Lembrete para reduzir o no-show.',
+      title: 'Lembrete de agendamento',
+      desc: 'A empresa confirma o horário automaticamente.',
     },
     {
       id: 3,
       icon: DollarSign,
-      title: '3. Resgate de Orçamento',
-      desc: 'Retoma o contato com leads inativos.',
+      title: 'Acompanhamento de orçamento',
+      desc: 'A empresa retoma o contato com quem não respondeu.',
     },
   ] as const;
 
@@ -236,12 +309,12 @@ export function Simulator() {
               align="left"
               className="mb-8"
             >
-              A mágica acontece em tempo real.
+              Veja a IA funcionando na prática.
             </SectionHeader>
             <p className="text-text-muted mb-8 text-lg leading-relaxed font-medium">
-              Selecione um cenário abaixo e assista como nossa Inteligência
-              Artificial conduz o atendimento, agenda clientes e resgata
-              orçamentos sozinha.
+              Escolha um exemplo abaixo e veja como um atendimento automático
+              pode responder dúvidas, confirmar horários e acompanhar clientes
+              pelo WhatsApp.
             </p>
 
             <div className="space-y-4">
@@ -318,6 +391,7 @@ export function Simulator() {
           </div>
 
           <motion.div
+            ref={phoneContainerRef}
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -342,8 +416,13 @@ export function Simulator() {
                   <Bot className="h-5 w-5 text-white" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <h4 className="truncate text-[15px] leading-tight font-bold text-white">
+                  <h4 className="flex items-center gap-1 truncate text-[15px] leading-tight font-bold text-white">
                     Agente Scalee
+                    <BadgeCheck
+                      className="h-4 w-4 text-emerald-400"
+                      fill="currentColor"
+                      stroke="white"
+                    />
                   </h4>
                   <p className="flex items-center gap-1.5 truncate text-[12px] font-medium text-slate-400">
                     {!isTyping && (
@@ -387,7 +466,7 @@ export function Simulator() {
                             href={CONTACT_URL}
                             className="bg-primary hover:bg-primary/90 inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-[13px] font-bold text-white shadow-sm transition-colors"
                           >
-                            Falar com um especialista
+                            Agendar conversa gratuita
                             <ArrowRight className="h-3.5 w-3.5" />
                           </a>
                         </div>
@@ -426,6 +505,27 @@ export function Simulator() {
                         <p className="leading-relaxed whitespace-pre-wrap">
                           {formatText(msg.text)}
                         </p>
+
+                        {msg.buttons && (
+                          <div className="mt-3 flex flex-col gap-2 border-t border-slate-100 pt-2">
+                            {msg.buttons.map((btn, idx) => (
+                              <button
+                                key={idx}
+                                onClick={() => handleChoiceClick(btn)}
+                                disabled={!waitingForChoice}
+                                className={cn(
+                                  'w-full text-center text-[14px] font-bold transition-colors',
+                                  waitingForChoice
+                                    ? 'cursor-pointer text-[#00a884] hover:text-[#008f6f] hover:underline'
+                                    : 'cursor-default text-slate-400'
+                                )}
+                              >
+                                {btn}
+                              </button>
+                            ))}
+                          </div>
+                        )}
+
                         <span className="float-right mt-2 ml-3 flex items-center gap-1 text-[10px] font-semibold text-slate-400">
                           {mounted ? msg.time : '--:--'}
                           {msg.type === 'user' && (
@@ -498,13 +598,25 @@ export function Simulator() {
                       autoComplete="off"
                     />
                   </div>
+
                   <button
                     onClick={handleFreeTyping}
-                    disabled={isSimulating || !inputValue.trim()}
-                    aria-label="Enviar mensagem"
-                    className="group flex h-10.5 w-10.5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white shadow-sm transition-colors hover:bg-emerald-600 disabled:cursor-not-allowed disabled:opacity-50"
+                    disabled={isSimulating || waitingForChoice}
+                    aria-label={
+                      inputValue.trim() ? 'Enviar mensagem' : 'Gravar áudio'
+                    }
+                    className={cn(
+                      'group flex h-10.5 w-10.5 shrink-0 items-center justify-center rounded-full text-white shadow-sm transition-all duration-300',
+                      inputValue.trim()
+                        ? 'bg-emerald-500 hover:bg-emerald-600'
+                        : 'bg-emerald-500/90 hover:bg-emerald-500 disabled:opacity-50'
+                    )}
                   >
-                    <Send className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:scale-110" />
+                    {inputValue.trim() ? (
+                      <Send className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:scale-110" />
+                    ) : (
+                      <Mic className="h-5 w-5" />
+                    )}
                   </button>
                 </div>
               </div>

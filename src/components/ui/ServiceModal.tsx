@@ -124,7 +124,7 @@ export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
                 icon
                 className="shadow-primary w-full py-3 sm:w-auto sm:py-2"
               >
-                Falar com especialista
+                Agendar conversa gratuita
               </Button>
             </footer>
           </motion.div>

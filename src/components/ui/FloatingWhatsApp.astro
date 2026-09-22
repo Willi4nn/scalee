@@ -1,10 +1,10 @@
 ---
 import { MessageCircle } from 'lucide-astro';
-import { WHATSAPP_URL } from '../../data/content';
+import { WHATSAPP_NUMBER } from '../../data/content';
 ---
 
 <a
-  href={WHATSAPP_URL}
+  href={`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Quero%20agendar%20um%20diagn%C3%B3stico%20gratuito.`}
   target="_blank"
   rel="noopener noreferrer"
   class="group fixed right-6 bottom-6 z-30 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-white shadow-lg shadow-emerald-500/30 transition-transform outline-none hover:-translate-y-1 hover:bg-emerald-600 focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"

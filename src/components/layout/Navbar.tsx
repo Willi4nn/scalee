@@ -1,7 +1,7 @@
 import { Menu, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useState } from 'react';
-import { NAV_LINKS, WHATSAPP_URL } from '../../data/content';
+import { NAV_LINKS, WHATSAPP_NUMBER } from '../../data/content';
 import { useBodyLock } from '../../hooks/useBodyLock';
 import { useScroll } from '../../hooks/useScroll';
 import { cn } from '../../lib/utils';
@@ -57,7 +57,11 @@ export function Navbar() {
 
           <div className="relative z-50 flex shrink-0 items-center justify-end gap-2 md:gap-4">
             <div className="hidden lg:block">
-              <Button href={WHATSAPP_URL} size="sm" icon>
+              <Button
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Quero%20agendar%20um%20diagn%C3%B3stico%20gratuito.`}
+                size="sm"
+                icon
+              >
                 Falar com especialista
               </Button>
             </div>
@@ -117,7 +121,7 @@ export function Navbar() {
 
               <div className="mt-auto pt-8">
                 <Button
-                  href={WHATSAPP_URL}
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Quero%20agendar%20um%20diagn%C3%B3stico%20gratuito.`}
                   className="shadow-primary w-full justify-center"
                   size="md"
                   icon

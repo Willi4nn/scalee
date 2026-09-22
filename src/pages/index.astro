@@ -10,11 +10,13 @@ import { Audience } from '../components/sections/Audience.tsx';
 import { Benefits } from '../components/sections/Benefits.tsx';
 import { CTABand } from '../components/sections/CTABand.tsx';
 import { Differentiators } from '../components/sections/Differentiators.tsx';
+import { FAQ } from '../components/sections/FAQ.tsx';
 import { Hero } from '../components/sections/Hero.tsx';
+import { Pricing } from '../components/sections/Pricing.tsx';
 import { Process } from '../components/sections/Process.tsx';
 import { Projects } from '../components/sections/Projects.tsx';
 import { Services } from '../components/sections/Services.tsx';
-import { Simulator } from '../components/sections/Simulator';
+import { Simulator } from '../components/sections/Simulator.tsx';
 import { Testimonials } from '../components/sections/Testimonials.tsx';
 ---
 
@@ -23,7 +25,6 @@ import { Testimonials } from '../components/sections/Testimonials.tsx';
 
   <main>
     <Hero client:load />
-
     <Benefits client:visible />
     <About />
     <Services client:visible />
@@ -31,8 +32,10 @@ import { Testimonials } from '../components/sections/Testimonials.tsx';
     <Process client:visible />
     <Differentiators client:visible />
     <Projects client:visible />
+    <Pricing client:visible />
     <Audience client:visible />
     <Testimonials client:visible />
+    <FAQ client:visible />
     <CTABand client:visible />
   </main>
 

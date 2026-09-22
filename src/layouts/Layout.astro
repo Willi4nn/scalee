@@ -7,9 +7,118 @@ import '../styles/global.css';
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://api.whatsapp.com" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="icon" type="image/svg+xml" href="/scalee-logo.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>Scalee | Soluções Digitais</title>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Scalee",
+        "url": "https://scalee.com.br",
+        "logo": "https://scalee.com.br/logo.png",
+        "image": "https://scalee.com.br/og-image.jpg",
+        "description": "Desenvolvimento de software sob medida, sistemas web, agentes de IA e automação de processos B2B.",
+        "telephone": "+55-34-99999-9999",
+        "priceRange": "R$ 497 - Sob Consulta",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Patos de Minas",
+          "addressRegion": "MG",
+          "addressCountry": "BR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "-18.5789",
+          "longitude": "-46.5181"
+        },
+        "sameAs": [
+          "https://instagram.com/scalee",
+          "https://linkedin.com/company/scalee"
+        ],
+        "areaServed": "BR"
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "A Inteligência Artificial não vai parecer muito robótica?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Não. Treinamos a IA com o tom de voz da sua empresa, histórico de conversas reais e seu vocabulário exato. O cliente interage como se estivesse falando com um atendente humano ágil."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Preciso trocar meu número de WhatsApp atual?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Não. Integramos a solução diretamente no número comercial que sua empresa já utiliza."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quanto tempo demora para a automação começar a funcionar?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Para soluções de WhatsApp e IA, a implantação e treinamento levam de 7 a 14 dias. Landing pages levam cerca de 15 dias."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Desenvolvimento de Software e Inteligência Artificial",
+        "provider": {
+          "@type": "Organization",
+          "name": "Scalee"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Planos de Automação e Software",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Plano Essencial - Agente de IA"
+              },
+              "price": "497.00",
+              "priceCurrency": "BRL"
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Plano Escala - IA + CRM"
+              },
+              "price": "997.00",
+              "priceCurrency": "BRL"
+            }
+          ]
+        }
+      }
+    </script>
   </head>
   <body
     class="font-body text-text bg-bg selection:bg-primary/20 selection:text-primary min-h-screen antialiased"

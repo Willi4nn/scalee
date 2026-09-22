@@ -1,0 +1,17 @@
+# Scalee - Desenvolvimento de Software e Agentes de IA
+
+> Scalee é uma empresa brasileira de tecnologia especializada em desenvolvimento de software sob medida, integração de Agentes de Inteligência Artificial para WhatsApp e automação de processos comerciais B2B.
+
+## Soluções Oferecidas
+- **Agentes de IA para WhatsApp:** Atendimento autônomo 24/7, agendamento de reuniões, qualificação de leads e recuperação de orçamentos.
+- **Sistemas Web & ERPs Sob Medida:** Desenvolvimento full-stack em React, Next.js, Node.js e PostgreSQL para automação operacional.
+- **Landing Pages de Alta Conversão:** Páginas ultrarrápidas em Astro e Tailwind CSS focadas em geração de leads B2B.
+
+## Especificações Técnicas e Diferenciais
+- Redução de até 80% do tempo de resposta no atendimento ao cliente.
+- Integração nativa com CRMs, webhooks e APIs externas via n8n e Node.js.
+- Transbordo silencioso para atendimento humano quando necessário.
+
+## Contato e Localização
+- Website: https://scaleesoftware.vercel.app
+- Localização: Patos de Minas, MG - Atendimento Nacional.

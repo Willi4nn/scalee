@@ -121,7 +121,7 @@ export function Services() {
             href="#contato"
             className="bg-primary hover:bg-primary/90 inline-flex shrink-0 items-center gap-2 rounded-full px-6 py-3 text-sm font-bold text-white shadow-sm transition-colors"
           >
-            Falar com um especialista
+            Agendar conversa gratuita
             <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
           </a>
         </motion.div>

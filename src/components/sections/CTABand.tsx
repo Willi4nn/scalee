@@ -1,5 +1,5 @@
 import { Rocket } from 'lucide-react';
-import { WHATSAPP_URL } from '../../data/content';
+import { WHATSAPP_NUMBER } from '../../data/content';
 import { Button } from '../ui/Button';
 import DarkVeil from '../ui/DarkVeil';
 
@@ -31,7 +31,10 @@ export function CTABand() {
               Agende uma conversa gratuita e descubra onde a tecnologia pode
               gerar mais eficiência para sua empresa.
             </p>
-            <Button href={WHATSAPP_URL} icon>
+            <Button
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Quero%20agendar%20um%20diagn%C3%B3stico%20gratuito.`}
+              icon
+            >
               Agendar conversa gratuita
             </Button>
           </div>
