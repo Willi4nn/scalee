@@ -45,7 +45,7 @@ export function Hero() {
             id="hero-title"
             className="font-display text-text-dark mb-6 text-4xl leading-[1.12] font-bold tracking-tight sm:text-5xl lg:text-[4rem]"
           >
-            Sistemas, automações e IA para sua empresa{' '}
+            Sites, Sistemas, automações e IA para sua empresa{' '}
             <span className="text-gradient">
               vender mais e perder menos tempo.
             </span>
