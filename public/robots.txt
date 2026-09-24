@@ -3,4 +3,4 @@ Allow: /
 Disallow: /api/
 
 # Sitemaps
-Sitemap: https://scaleesoftware.vercel.app/sitemap-index.xml
+Sitemap: https://scaleetecnologia.vercel.app/sitemap-index.xml

@@ -13,5 +13,5 @@
 - Transbordo silencioso para atendimento humano quando necessário.
 
 ## Contato e Localização
-- Website: https://scaleesoftware.vercel.app
+- Website: https://scaleetecnologia.vercel.app
 - Localização: Patos de Minas, MG - Atendimento Nacional.

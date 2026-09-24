@@ -4,7 +4,7 @@ import tailwindv4 from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://scaleesoftware.vercel.app/',
+  site: 'https://scaleetecnologia.vercel.app',
   integrations: [react(), sitemap()],
   vite: {
     plugins: [tailwindv4()],

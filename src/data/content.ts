@@ -356,8 +356,8 @@ export const PROJECTS: Project[] = [
     description:
       'Sistema web desenvolvido para uma estofaria organizar pedidos, custos, produção e informações financeiras em um só lugar, substituindo parte dos controles manuais.',
     skills: ['React', 'Node.js', 'PostgreSQL'],
-    projectUrl: 'https://renova-manager.vercel.app',
-    githubUrl: 'https://github.com/Willi4nn/renova',
+    projectUrl: 'https://scaleetecnologia.vercel.app',
+    githubUrl: 'https://github.com/Willi4nn/scalee',
     image: '/images/renova.png',
   },
 
@@ -444,7 +444,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
 ];
 
 export const CONTACT_INFO: ContactInfo = {
-  email: 'scaleetecnologia@gmail.com',
+  email: 'https://scaleetecnologia.vercel.app',
   phone: '553499069861',
   phoneFormatted: '(34) 9 9906-9861',
   address: 'Patos de Minas — MG',
